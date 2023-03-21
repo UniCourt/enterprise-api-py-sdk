@@ -146,13 +146,15 @@ class ApiClient(object):
         if self.cookie:
             header_params['Cookie'] = self.cookie
         if header_params:
-            header_params = self.sanitize_for_serialization(header_params)
+            header_params = self.sanitize_for_serialization(
+                header_params, method=method)
             header_params = dict(self.parameters_to_tuples(header_params,
                                                            collection_formats))
 
         # path parameters
         if path_params:
-            path_params = self.sanitize_for_serialization(path_params)
+            path_params = self.sanitize_for_serialization(
+                path_params, method=method)
             path_params = self.parameters_to_tuples(path_params,
                                                     collection_formats)
             for k, v in path_params:
@@ -164,14 +166,16 @@ class ApiClient(object):
 
         # query parameters
         if query_params:
-            query_params = self.sanitize_for_serialization(query_params)
+            query_params = self.sanitize_for_serialization(
+                query_params, method=method)
             query_params = self.parameters_to_tuples(query_params,
                                                      collection_formats)
 
         # post parameters
         if post_params or files:
             post_params = post_params if post_params else []
-            post_params = self.sanitize_for_serialization(post_params)
+            post_params = self.sanitize_for_serialization(
+                post_params, method=method)
             post_params = self.parameters_to_tuples(post_params,
                                                     collection_formats)
             post_params.extend(self.files_parameters(files))
@@ -181,7 +185,7 @@ class ApiClient(object):
 
         # body
         if body:
-            body = self.sanitize_for_serialization(body)
+            body = self.sanitize_for_serialization(body, method=method)
 
         # auth setting
         self.update_params_for_auth(header_params, query_params,
@@ -266,7 +270,7 @@ class ApiClient(object):
         return new_params
 
     @classmethod
-    def sanitize_for_serialization(cls, obj):
+    def sanitize_for_serialization(cls, obj, method=None):
         """Prepares data for transmission before it is sent with the rest client
         If obj is None, return None.
         If obj is str, int, long, float, bool, return directly.
@@ -285,12 +289,13 @@ class ApiClient(object):
                 val in model_to_dict(
                     obj,
                     serialize=True).items()}
-        # fix boolean issue in python sdk
-        # [APIT-78] https://unicourt.atlassian.net/browse/APIT-78
-        # below code should be in the currrent position
+        # fix boolean issue in python sdk for http GET method
+        # [APIT-79] https://unicourt.atlassian.net/browse/APIT-79
+        # below code should be in the currrent position, and only for GET method
         # refer : https://github.com/OpenAPITools/openapi-generator/issues/1260
-        # elif isinstance(obj, bool):
-        #     return obj.__str__().lower()
+        # custom code for boolean fix in python starts here
+        elif isinstance(obj, bool) and method == "GET":
+            return obj.__str__().lower()
         # custom code for boolean fix in python ends here
         elif isinstance(obj, io.IOBase):
             return cls.get_file_data_and_close_file(obj)
@@ -299,11 +304,11 @@ class ApiClient(object):
         elif isinstance(obj, (datetime, date)):
             return obj.isoformat()
         elif isinstance(obj, ModelSimple):
-            return cls.sanitize_for_serialization(obj.value)
+            return cls.sanitize_for_serialization(obj.value, method=method)
         elif isinstance(obj, (list, tuple)):
-            return [cls.sanitize_for_serialization(item) for item in obj]
+            return [cls.sanitize_for_serialization(item, method=method) for item in obj]
         if isinstance(obj, dict):
-            return {key: cls.sanitize_for_serialization(val) for key, val in obj.items()}
+            return {key: cls.sanitize_for_serialization(val, method=method) for key, val in obj.items()}
         raise ApiValueError(
             'Unable to prepare type {} for serialization'.format(
                 obj.__class__.__name__))
