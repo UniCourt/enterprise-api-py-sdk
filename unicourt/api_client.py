@@ -244,7 +244,6 @@ class ApiClient(object):
         else:
             # return (return_data, response_data.status,
             #         response_data.getheaders())
-            # custom code start
             return return_data, response_data.status
 
     def parameters_to_multipart(self, params, collection_types):
@@ -289,14 +288,8 @@ class ApiClient(object):
                 val in model_to_dict(
                     obj,
                     serialize=True).items()}
-        # fix boolean issue in python sdk for http GET method
-        # [APIT-79] https://unicourt.atlassian.net/browse/APIT-79
-        # below code should be in the currrent position, and only for GET method
-        # refer : https://github.com/OpenAPITools/openapi-generator/issues/1260
-        # custom code for boolean fix in python starts here
         elif isinstance(obj, bool) and method == "GET":
             return obj.__str__().lower()
-        # custom code for boolean fix in python ends here
         elif isinstance(obj, io.IOBase):
             return cls.get_file_data_and_close_file(obj)
         elif isinstance(obj, (str, int, float, none_type, bool)):
