@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: '3.9'
       - name: Install UniCourt Python SDK       
-        run: python setup.py --install
+        run: python setup.py install
       - name: Run SDK test
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
