@@ -22,6 +22,7 @@ class TestBase:
 
     def run(self):
         args = self.parser.parse_args()
+        print(">>> ", os.listdir())
         for module_name in [re.sub("\.py", "", module)
                             for module in os.listdir() if module.startswith("test") and module.endswith("py")]:
 
