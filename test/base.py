@@ -45,11 +45,11 @@ class TestBase:
                     try:
                         _, status_code = function()
                         print(method_name, status_code)
-                        time.sleep(5)
+                        time.sleep(7)
                         #instance_obj.log(method_name, status_code)
                     except Exception as e:
                         #instance_obj.log(method_name, status_code)
-                        Authentication.invalidate_token(self.auth_obj[0].token_id)
+                        Authentication.invalidate_token(token_id=self.auth_obj[0].token_id)
 
 
 def main():
