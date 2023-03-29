@@ -3,7 +3,7 @@ import importlib
 import os
 import re
 import time
-from test.test_authentication_api import TestAuthentication
+from test_authentication_api import TestAuthentication
 import unicourt
 from unicourt.sdk.Authentication import Authentication
 
