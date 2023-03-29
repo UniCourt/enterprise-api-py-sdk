@@ -50,7 +50,8 @@ class TestBase:
                         #instance_obj.log(method_name, status_code)
                     except Exception as e:
                         #instance_obj.log(method_name, status_code)
-                        #Authentication.invalidate_token(token_id=self.auth_obj[0].token_id)
+                        # Authentication.invalidate_token(token_id=self.auth_obj[0].token_id)
+                        pass
 
 
 def main():
