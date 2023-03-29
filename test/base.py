@@ -28,7 +28,7 @@ class TestBase:
             module = __import__(module_name)
             class_name = [class_name for class_name in dir(
                 module) if class_name.startswith('Test')][0]
-            #print(class_name, args.exclude.split())
+            print(class_name, args.exclude.split())
             if args.exclude:
                 if class_name in args.exclude.split(","):
                     continue
