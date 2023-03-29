@@ -55,7 +55,7 @@ class TestBase:
 
 
 def main():
-    print("########### Starting Test for SDK ###########")
+    print("###########  Starting Test for SDK ###########")
     TestBase().run()
 
 
