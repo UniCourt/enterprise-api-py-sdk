@@ -21,15 +21,16 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="UniCourt Enterprise APIs",
+    description="Python bindings for the UniCourt Enterprise APIs",
     author="UniCourt",
     author_email="support@unicourt.com",
     url="https://unicourt.com/",
-    keywords=["UniCourt", "UniCourt Python SDK", "UniCourt Enterprise APIs"],
+    keywords=["UniCourt", "UniCourt Python Package",
+              "UniCourt Enterprise APIs"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    long_description="""The UniCourt SDK provides simplified access to the UniCourt API for applications written in the Python programming language
+    long_description="""The UniCourt Python Package provides simplified access to the UniCourt API for applications written in the Python programming language. Documentation of UniCourt's APIs can be found at docs.unicourt.com. API keys can be obtained by filling out the form here https://unicourt.com/contact-us/?c=sales&enterprise=1
     """
 )

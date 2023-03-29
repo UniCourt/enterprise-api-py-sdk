@@ -1,0 +1,22 @@
+name: SDK test with Python Script on Merge
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Run SDK test
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          PACER_USER_ID: ${{ secrets.PACER_USER_ID }}
+        run: python base.py --exclude TestPacer
