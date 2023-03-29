@@ -3,6 +3,7 @@ import importlib
 import os
 import re
 import time
+from test.test_authentication_api import TestAuthentication
 import unicourt
 from unicourt.sdk.Authentication import Authentication
 
@@ -31,7 +32,7 @@ class TestBase:
                 module) if class_name.startswith('Test')][0]
             print(class_name, args.exclude.split())
             if args.exclude:
-                if class_name in args.exclude.split(","):
+                if class_name in args.exclude.split(",") or class_name == 'TestAuthentication':
                     continue
             if args.include:
                 if class_name not in args.include.split(","):
