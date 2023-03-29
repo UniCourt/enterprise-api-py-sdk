@@ -2,6 +2,7 @@ import argparse
 import importlib
 import os
 import re
+import time
 import unicourt
 from unicourt.sdk.Authentication import Authentication
 
@@ -15,7 +16,7 @@ class TestBase:
                                  help=" include test name by passing it in comma separated format")
         unicourt.CLIENT_ID = os.getenv("CLIENT_ID")
         unicourt.CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-        obj, _ = unicourt.Authentication.generate_new_token()
+        unicourt.Authentication.generate_new_token()
 
     def log(self, func_name,  status):
         pass
@@ -44,6 +45,7 @@ class TestBase:
                     try:
                         _, status_code = function()
                         print(method_name, status_code)
+                        time.slee(5)
                         #instance_obj.log(method_name, status_code)
                     except Exception as e:
                         #instance_obj.log(method_name, status_code)
