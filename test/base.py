@@ -45,7 +45,7 @@ class TestBase:
                     try:
                         _, status_code = function()
                         print(method_name, status_code)
-                        time.sleep(7)
+                        time.sleep(5)
                         #instance_obj.log(method_name, status_code)
                     except Exception as e:
                         #instance_obj.log(method_name, status_code)
