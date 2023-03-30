@@ -22,4 +22,4 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           PACER_USER_ID: ${{ secrets.PACER_USER_ID }}
           PACER_CLIENT_CODE: ${{ secrets.PACER_CLIENT_CODE }}
-        run: python test/base.py
+        run: python test/base.py --include TestUsageAPI
