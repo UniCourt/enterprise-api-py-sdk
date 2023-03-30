@@ -1,6 +1,7 @@
 import argparse
 import importlib
 import os
+import pathlib
 import re
 import time
 from test_authentication_api import TestAuthentication
@@ -25,12 +26,10 @@ class TestBase:
     def run(self):
         args = self.parser.parse_args()
         for module_name in [re.sub("\.py", "", module)
-                            for module in os.listdir("test") if module.startswith("test") and module.endswith("py")]:
-
+                            for module in os.listdir(os.path.dirname(os.path.abspath(__file__))) if module.startswith("test") and module.endswith("py")]:
             module = __import__(module_name)
             class_name = [class_name for class_name in dir(
                 module) if class_name.startswith('Test')][0]
-            print(class_name, args.exclude.split())
             if args.exclude:
                 if class_name in args.exclude.split(",") or class_name == 'TestAuthentication':
                     continue
