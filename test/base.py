@@ -28,8 +28,10 @@ class TestBase:
             module = __import__(module_name)
             class_name = [class_name for class_name in dir(
                 module) if class_name.startswith('Test')][0]
+            if class_name == 'TestAuthentication':
+                continue
             if args.exclude:
-                if class_name in args.exclude.split(",") or class_name == 'TestAuthentication':
+                if class_name in args.exclude.split(","):
                     continue
             if args.include:
                 if class_name not in args.include.split(","):
