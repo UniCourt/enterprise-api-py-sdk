@@ -1,10 +1,7 @@
 import argparse
-import importlib
 import os
-import pathlib
 import re
 import time
-from test_authentication_api import TestAuthentication
 import unicourt
 from unicourt.sdk.Authentication import Authentication
 

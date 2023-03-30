@@ -21,4 +21,5 @@ jobs:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           PACER_USER_ID: ${{ secrets.PACER_USER_ID }}
-        run: python test/base.py --exclude TestPacer,TestPacerCredentials
+          PACER_CLIENT_CODE: ${{ secrets.PACER_CLIENT_CODE }}
+        run: python test/base.py
