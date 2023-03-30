@@ -48,7 +48,7 @@ class TestBase:
                         # time.sleep(1)
                         #instance_obj.log(method_name, status_code)
                     except Exception as e:
-                        #instance_obj.log(method_name, status_code)
+                        ##instance_obj.log(method_name, status_code)
                         Authentication.invalidate_token()
                         raise Exception(e)
 
