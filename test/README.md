@@ -14,7 +14,7 @@ To run the SDK tests you need python >= 3.6 and Git installed.
 
 
 
-**Method 1 :**  Execute below given steps using the terminal in sequential order 
+**Method 1 :**  Execute below given steps in the terminal
 
 ```
   pip install unicourt
@@ -31,7 +31,7 @@ To run the SDK tests you need python >= 3.6 and Git installed.
   python3 enterprise-api-py-sdk/test/base.py --exclude TestPacer
 ```
 
-**Method 2 :** You can use the Dockerfile present in the test directory to run the test. Open terminal and go to the test directory and do the following 
+**Method 2 :** Use the Dockerfile in the test directory. Open up the terminal and run the below given command
 
 ```
 docker build -t test_unicourt_sdk --build-arg CLIENT_ID=G3cfixgetVzfaoszGOBp5LPGtih1nMJ9 --build-arg CLIENT_SECRET=u6PTti57IjPlrwU5MzOwLBD2MCwx-IEbo8sTStTivh1I-EqQ8Jcm27Gfo2GhpHCw --build-arg PACER_CLIENT_CODE=xyz_client --build-arg PACER_USER_ID=pcrid .
