@@ -1,0 +1,25 @@
+name: SDK test with Python Script on Merge
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install UniCourt Python SDK       
+        run: python setup.py install
+      - name: Run SDK test
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          PACER_USER_ID: ${{ secrets.PACER_USER_ID }}
+          PACER_CLIENT_CODE: ${{ secrets.PACER_CLIENT_CODE }}
+        run: python test/base.py --exclude TestPacer
