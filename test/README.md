@@ -1,3 +1,29 @@
-# unicourt-python-sdk-tests
-  This contains test for all the SDK functions
+# UniCourt Python SDK Tests
+
+## Getting started 
+To run the SDK tests on your local machine you need python >= 3.6 and Git(only if your are using method 2) installed. 
+
+
+**Method 1 :**  Execute below given steps using the terminal in sequential order 
+
+```
+  pip install unicourt
+
+  EXPORT CLIENT_ID=”G3cfixgetVzfaoszGOBp5LPGtih1nMJ9”
+
+  EXPORT CLIENT_SECRET=”u6PTti57IjPlrwU5MzOwLBD2MCwx-IEbo8sTStTivh1I-EqQ8Jcm27Gf”
+
+  EXPORT PACER_CLIENT_CODE=”xyz_client”
+  PACER_USER_ID CLIENT_ID=”pcrid”
+
+  python3 enterprise-api-py-sdk/test/base.py --exclude TestPacer
+```
+
+**Method 2 :** You can use the Dockerfile present in the test directory to run the test. Open terminal and go to the test directory and do the following 
+
+```
+docker build -t test_sdh --build-arg CLIENT_ID=G3cfixgetVzfaoszGOBp5LPGtih1nMJ9 --build-arg CLIENT_SECRET=u6PTti57IjPlrwU5MzOwLBD2MCwx-IEbo8sTStTivh1I-EqQ8Jcm27Gfo2GhpHCw --build-arg PACER_CLIENT_CODE=xyz_client --build-arg PACER_USER_ID=pcrid .
+```
+
+  Above command will execute the tests and you can see the test results on your terminal.
 
