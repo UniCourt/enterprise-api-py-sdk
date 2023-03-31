@@ -45,9 +45,7 @@ class TestBase:
                         _, status_code = function()
                         print(method_name, status_code)
                         time.sleep(1)
-                        #instance_obj.log(method_name, status_code)
                     except Exception as e:
-                        ##instance_obj.log(method_name, status_code)
                         Authentication.invalidate_token()
                         raise Exception(e)
 
