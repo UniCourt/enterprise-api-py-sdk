@@ -17,9 +17,6 @@ class TestBase:
         unicourt.CLIENT_SECRET = os.getenv("CLIENT_SECRET")
         self.auth_obj = unicourt.Authentication.generate_new_token()
 
-    def log(self, func_name,  status):
-        pass
-
     def run(self):
         args = self.parser.parse_args()
         for module_name in [re.sub("\.py", "", module)
