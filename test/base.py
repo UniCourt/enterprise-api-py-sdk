@@ -16,7 +16,6 @@ class TestBase:
         unicourt.CLIENT_ID = os.getenv("CLIENT_ID")
         unicourt.CLIENT_SECRET = os.getenv("CLIENT_SECRET")
         self.auth_obj = unicourt.Authentication.generate_new_token()
-        print(self.auth_obj)
 
     def log(self, func_name,  status):
         pass
@@ -49,7 +48,6 @@ class TestBase:
                         #instance_obj.log(method_name, status_code)
                     except Exception as e:
                         ##instance_obj.log(method_name, status_code)
-                        print("#####TOKEN_ID ", unicourt.TOKEN_ID)
                         Authentication.invalidate_token()
                         raise Exception(e)
 
