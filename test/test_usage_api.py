@@ -10,4 +10,5 @@ class TestUsageAPI:
             billing_cycle="2023-01-25to2023-02-25")
 
     def test_get_daily_usage_by_date():
+        # Get daily usage
         return Usage.get_daily_usage_by_date(date='2023-02-21')
