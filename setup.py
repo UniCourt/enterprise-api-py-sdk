@@ -12,10 +12,7 @@ VERSION = os.getenv("RELEASE")
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = [
-    "urllib3 >= 1.25.3",
-    "python-dateutil",
-]
+REQUIRES = ["python_dateutil >= 2.5.3", "setuptools >= 21.0.0", "urllib3 >= 1.25.3"]
 
 
 setup(
@@ -32,7 +29,7 @@ setup(
     keywords=["UniCourt", "UniCourt Python Package",
               "UniCourt Enterprise APIs"],
     python_requires=">=3.6",
-    install_requires=open("requirements.txt").readlines(),
+    install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description="""The UniCourt Python Package provides simplified access to the UniCourt API for applications written in the Python programming language. Documentation of UniCourt's APIs can be found at docs.unicourt.com. API keys can be obtained by filling out the form here https://unicourt.com/contact-us/?c=sales&enterprise=1
