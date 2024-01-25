@@ -4,7 +4,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 os.chdir(here)
 
 NAME = "unicourt"
-VERSION = "1.0.1"
+VERSION = os.getenv("RELEASE")
 # To install the library, run the following
 #
 # python setup.py install
@@ -32,7 +32,7 @@ setup(
     keywords=["UniCourt", "UniCourt Python Package",
               "UniCourt Enterprise APIs"],
     python_requires=">=3.6",
-    install_requires=REQUIRES,
+    install_requires=open("requirements.txt").readlines(),
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description="""The UniCourt Python Package provides simplified access to the UniCourt API for applications written in the Python programming language. Documentation of UniCourt's APIs can be found at docs.unicourt.com. API keys can be obtained by filling out the form here https://unicourt.com/contact-us/?c=sales&enterprise=1
