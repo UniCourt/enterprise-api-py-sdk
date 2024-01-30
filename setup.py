@@ -1,8 +1,10 @@
 import os
 from setuptools import setup, find_packages
+here = os.path.abspath(os.path.dirname(__file__))
+os.chdir(here)
 
 NAME = "unicourt"
-VERSION = os.getenv("RELEASE")
+VERSION = "2.0.2"
 # To install the library, run the following
 #
 # python setup.py install
@@ -10,7 +12,7 @@ VERSION = os.getenv("RELEASE")
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["python_dateutil >= 2.5.3", "setuptools >= 21.0.0", "urllib3 >= 1.25.3"]
+REQUIRES = ["python_dateutil >= 2.5.3", "urllib3 >= 1.25.3"]
 
 setup(
     name=NAME,
