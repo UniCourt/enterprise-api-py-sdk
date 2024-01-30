@@ -24,36 +24,37 @@ class TestBase:
     def run(self):
         args = self.parser.parse_args()
         for module_name in [re.sub("\.py", "", module)
-                            for module in os.listdir("test") if module.startswith("test") and module.endswith("py")]:
+            for module in os.listdir()
+                if module.startswith("tests") and module.endswith("py")]:
+                    module = __import__(module_name)
+                    class_name = [class_name for class_name in dir(
+                        module) if class_name.startswith('Test')][0]
+                    print("########### Testing", class_name, args.exclude.split(), "###########\n")
+                    if args.exclude:
+                        if class_name in args.exclude.split(","):
+                            continue
+                    if args.include:
+                        if class_name not in args.include.split(","):
+                            continue
+                    instance_obj = getattr(module, class_name)
 
-            module = __import__(module_name)
-            class_name = [class_name for class_name in dir(
-                module) if class_name.startswith('Test')][0]
-            print(class_name, args.exclude.split())
-            if args.exclude:
-                if class_name in args.exclude.split(","):
-                    continue
-            if args.include:
-                if class_name not in args.include.split(","):
-                    continue
-            instance_obj = getattr(module, class_name)
-
-            method_list = [meth for meth in dir(
-                instance_obj) if meth.startswith('test') is True]
-            for method_name in method_list:
-                if hasattr(instance_obj, method_name) and callable(function := getattr(instance_obj, method_name)):
-                    try:
-                        _, status_code = function()
-                        print(method_name, status_code)
-                        time.sleep(5)
-                        #instance_obj.log(method_name, status_code)
-                    except Exception as e:
-                        #instance_obj.log(method_name, status_code)
-                        Authentication.invalidate_token(token_id=self.auth_obj[0].token_id)
+                    method_list = [meth for meth in dir(
+                        instance_obj) if meth.startswith('test') is True]
+                    for method_name in method_list:
+                        if hasattr(instance_obj, method_name) and callable(function := getattr(instance_obj, method_name)):
+                            try:
+                                _, status_code = function()
+                                print("Method:", method_name, "Status Code:", status_code, "\n")
+                                time.sleep(5)
+                                # instance_obj.log(method_name, status_code)
+                            except Exception as e:
+                                print("here", unicourt.TOKEN_ID)
+                                #instance_obj.log(method_name, status_code)
+                                Authentication.invalidate_token()
 
 
 def main():
-    print("########### Starting Test for SDK ###########")
+    print("########### Starting Test for SDK ###########\n")
     TestBase().run()
 
 

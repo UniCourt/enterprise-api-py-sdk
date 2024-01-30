@@ -27,7 +27,7 @@ from urllib3.fields import RequestField
 
 from unicourt import rest
 from unicourt.configuration import Configuration
-from unicourt.exceptions import ApiTypeError, ApiValueError, ApiException
+from unicourt.exceptions import ApiTypeError, ApiValueError, ApiException, SdkException
 from unicourt.model_utils import (
     ModelNormal,
     ModelSimple,
@@ -205,7 +205,7 @@ class ApiClient(object):
                 post_params=post_params, body=body,
                 _preload_content=_preload_content,
                 _request_timeout=_request_timeout)
-        except ApiException as e:
+        except SdkException as e:
             e.body = e.body.decode('utf-8')
             raise e
 
