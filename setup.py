@@ -4,7 +4,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 os.chdir(here)
 
 NAME = "unicourt"
-VERSION = "2.0.2"
+VERSION = "2.0.3"
 # To install the library, run the following
 #
 # python setup.py install
