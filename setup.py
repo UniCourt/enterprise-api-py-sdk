@@ -1,7 +1,4 @@
-import os
 from setuptools import setup, find_packages
-here = os.path.abspath(os.path.dirname(__file__))
-os.chdir(here)
 
 NAME = "unicourt"
 VERSION = os.getenv("RELEASE")
@@ -12,7 +9,7 @@ VERSION = os.getenv("RELEASE")
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["python_dateutil >= 2.5.3", "setuptools >= 21.0.0", "urllib3 >= 1.25.3"]
+REQUIRES = ["python_dateutil >= 2.5.3", "urllib3 >= 1.25.3"]
 
 
 setup(
@@ -21,6 +18,7 @@ setup(
     description="Python bindings for the UniCourt Enterprise APIs",
     author="UniCourt",
     author_email="support@unicourt.com",
+    license="",
     url="https://unicourt.com/",
     project_urls={
         "Source": "https://github.com/UniCourt/enterprise-api-py-sdk/tree/main",
