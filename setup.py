@@ -10,8 +10,7 @@ VERSION = os.getenv("RELEASE")
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["python_dateutil >= 2.5.3", "urllib3 >= 1.25.3"]
-
+REQUIRES = ["python_dateutil >= 2.5.3", "setuptools >= 21.0.0", "urllib3 >= 1.25.3"]
 
 setup(
     name=NAME,
