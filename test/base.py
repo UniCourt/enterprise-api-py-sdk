@@ -49,7 +49,7 @@ class TestBase:
                                 time.sleep(5)
                                 # instance_obj.log(method_name, status_code)
                             except Exception as e:
-                                print("here", unicourt.TOKEN_ID)
+                                print("here", e)
                                 #instance_obj.log(method_name, status_code)
                                 Authentication.invalidate_token()
 

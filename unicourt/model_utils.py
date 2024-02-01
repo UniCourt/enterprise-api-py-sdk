@@ -174,7 +174,10 @@ class OpenApiModel(object):
                 value,
                 self._configuration
             )
-        self.__dict__['_data_store'][name] = value
+        if type(value) == datetime or type(value) == date:
+            self.__dict__['_data_store'][name] = str(value)
+        else:
+            self.__dict__['_data_store'][name] = value
 
     def __repr__(self):
         """For `print` and `pprint`"""
@@ -186,6 +189,7 @@ class OpenApiModel(object):
 
     def __setattr__(self, attr, value):
         """set the value of an attribute using dot notation: `instance.attr = val`"""
+        
         self[attr] = value
 
     def __getattr__(self, attr):
@@ -912,7 +916,7 @@ def check_validations(
     if input_values is None:
         return
     elif type(input_values) == datetime or type(input_values) == date:
-        input_values = str(input_values)
+        return
 
     current_validations = validations[input_variable_path]
     if (is_json_validation_enabled('multipleOf', configuration) and
