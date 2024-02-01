@@ -25,7 +25,7 @@ class TestBase:
         args = self.parser.parse_args()
         for module_name in [re.sub("\.py", "", module)
             for module in os.listdir()
-                if module.startswith("tests") and module.endswith("py")]:
+                if module.startswith("testss") and module.endswith("py")]:
                     module = __import__(module_name)
                     class_name = [class_name for class_name in dir(
                         module) if class_name.startswith('Test')][0]
@@ -43,7 +43,8 @@ class TestBase:
                     for method_name in method_list:
                         if hasattr(instance_obj, method_name) and callable(function := getattr(instance_obj, method_name)):
                             try:
-                                _, status_code = function()
+                                res, status_code = function()
+                                print(res,"\n")
                                 print("Method:", method_name, "Status Code:", status_code, "\n")
                                 time.sleep(5)
                                 # instance_obj.log(method_name, status_code)
