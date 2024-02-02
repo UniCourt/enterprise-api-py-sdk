@@ -17,6 +17,7 @@ class TestBase:
         unicourt.CLIENT_ID = os.getenv("CLIENT_ID")
         unicourt.CLIENT_SECRET = os.getenv("CLIENT_SECRET")
         self.auth_obj = unicourt.Authentication.generate_new_token()
+        # self.auth_obj = unicourt.Authentication.invalidate_all_tokens()
 
     def log(self, func_name,  status):
         pass
