@@ -93,7 +93,7 @@ class Configuration(object):
                  ):
         """Constructor
         """
-        self._base_path = "https://enterpriseapi.staging.unicourt.com" if host is None else host
+        self._base_path = "https://enterpriseapi.unicourt.com" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -399,7 +399,7 @@ class Configuration(object):
         """
         return [
             {
-                'url': "https://enterpriseapi.staging.unicourt.com",
+                'url': "https://enterpriseapi.unicourt.com",
                 'description': "No description provided",
             }
         ]
