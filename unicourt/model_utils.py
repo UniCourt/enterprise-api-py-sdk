@@ -8,7 +8,7 @@
 """
 # The SDK generation for datetime has value issue "datetime serialization format override"
 # Refer : https://github.com/OpenAPITools/openapi-generator/issues/14503
-# Fix for the datetime is done at line 177 and 918
+# Fix for the datetime is done at line 179 and 919
 
 from datetime import date, datetime  # noqa: F401
 from copy import deepcopy
