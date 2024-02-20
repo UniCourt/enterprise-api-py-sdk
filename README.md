@@ -21,13 +21,14 @@ pip install --upgrade unicourt
 Install from source :
 
 ```sh
+export SDK_VERSION=<new sdk version>
 python setup.py install
 ```
 
 ## Pre-request and Configuration
 You need a UniCourt account with API access :  [Subscription Plans](https://unicourt.com/pricing)
 
-You will find clientId and secret here: [Client Secrets](https://app.unicourt.com/developers/enterpiseAPI)
+You will find clientId and secret here: [Client Secrets](https://app.unicourt.com/developers/enterpriseAPI)
 
 ## Getting Started
 The Python script you see here takes two command line arguments i.e clientId and secret, to execute the script copy and paste the code to a file (sample.py) and run the script in a terminal as shown in the example below.

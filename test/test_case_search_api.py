@@ -10,7 +10,7 @@ class TestCaseSearch:
             page_number=1
         )
 
-    # def test_search_cases_by_id():
-    #     return CaseSearch.search_cases_by_id(
-    #         case_search_id='CSRCU3qFUH8BjLnba5'
-    #     )
+    def test_search_cases_by_id():
+        return CaseSearch.search_cases_by_id(
+            case_search_id='CSRCU3qFUH8BjLnba5'
+        )
