@@ -19,4 +19,4 @@ ENV SDK_VERSION $SDK_VERSION
 WORKDIR /app
 RUN git clone https://github.com/UniCourt/enterprise-api-py-sdk.git
 RUN python enterprise-api-py-sdk/setup.py install
-RUN python enterprise-api-py-sdk/test/base.py --exclude TestPacer
+RUN cd enterprise-api-py-sdk/test/ && python base.py --exclude TestPacer
