@@ -140,7 +140,7 @@ class DailyUsageResponse(ModelNormal):
         Args:
             usage_start_time (datetime): Start time of the usage.
             usage_end_time (datetime): End time of the usage.
-            api_usage ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Api Usage made.
+            api_usage ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Api Usage made in real time.
             api_calls_made (BillingCycleUsageResponseApiCallsMade):
             api_calls_credited (BillingCycleUsageResponseApiCallsCredited):
             api_calls_billable (BillingCycleUsageResponseApiCallsBillable):
@@ -242,7 +242,7 @@ class DailyUsageResponse(ModelNormal):
         Args:
             usage_start_time (datetime): Start time of the usage.
             usage_end_time (datetime): End time of the usage.
-            api_usage ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Api Usage made.
+            api_usage ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Api Usage made in real time.
             api_calls_made (BillingCycleUsageResponseApiCallsMade):
             api_calls_credited (BillingCycleUsageResponseApiCallsCredited):
             api_calls_billable (BillingCycleUsageResponseApiCallsBillable):

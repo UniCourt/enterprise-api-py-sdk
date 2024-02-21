@@ -106,7 +106,7 @@ class Party(ModelNormal):
             'max_length': 50,
         },
         ('source_party_role',): {
-            'max_length': 50,
+            'max_length': 100,
         },
         ('first_fetch_date',): {
             'max_length': 25,

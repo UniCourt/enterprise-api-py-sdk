@@ -26,8 +26,8 @@ from unicourt.model.case_document_order_callback import CaseDocumentOrderCallbac
 from unicourt.model.case_document_order_callback_list_response import CaseDocumentOrderCallbackListResponse
 from unicourt.model.case_document_order_request import CaseDocumentOrderRequest
 from unicourt.model.case_documents import CaseDocuments
+from unicourt.model.document_download import DocumentDownload
 from unicourt.model.exception import Exception
-from unicourt.model.get_case_document_download_by_id200_response import GetCaseDocumentDownloadById200Response
 
 
 class CaseDocumentsApi(object):
@@ -43,7 +43,7 @@ class CaseDocumentsApi(object):
         self.api_client = api_client
         self.get_case_document_download_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': (GetCaseDocumentDownloadById200Response,),
+                'response_type': (DocumentDownload,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -206,6 +206,7 @@ class CaseDocumentsApi(object):
                     ('status',): {
 
                         "IN_PROGRESS": "IN_PROGRESS",
+                        "DELAYED": "DELAYED",
                         "COMPLETE": "COMPLETE",
                         "FAILURE": "FAILURE"
                     },
@@ -512,7 +513,7 @@ class CaseDocumentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            GetCaseDocumentDownloadById200Response
+            DocumentDownload
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -887,7 +888,7 @@ class CaseDocumentsApi(object):
     ):
         """Add Case Document Order for requested Document Ids.  # noqa: E501
 
-        Add Case Document Order for requested Document Ids.  # noqa: E501
+        Add Case Document Order for requested Document Ids. The status will be ``IN_PROGRESS`` after it has been requested. If the request is not processed within 4 hours, it will be reported as ``DELAYED``.  If the request is still incomplete after 4 hours, it will remain in the DELAYED status for up to 72 hours after the request was approved. Such requests will be recorded as ``TIMEOUT`` after 72 hours.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
