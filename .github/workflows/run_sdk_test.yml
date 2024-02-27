@@ -1,10 +1,8 @@
 name: SDK test with Python Script on Merge
 
 on:
-  pull_request:
-    types: [closed]
-    branches:
-      - main
+  workflow_dispatch:
+  
 jobs:
   run-script:
     runs-on: ubuntu-latest
