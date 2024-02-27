@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   
 jobs:
-  run-script:
+  test:
     runs-on: ubuntu-latest
     env:
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
