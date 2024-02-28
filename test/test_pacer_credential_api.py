@@ -1,3 +1,4 @@
+import os
 from unicourt.model.pacer_credential_request import PacerCredentialRequest
 from unicourt.sdk.PACERCredential import PACERCredential
 
