@@ -2,8 +2,6 @@ from unicourt.sdk.PartyAnalytics import PartyAnalytics
 
 
 class TestPartyAnalytics:
-    # Test all Analytics APIs
-    
     def test_get_norm_attorneys_associated_with_norm_party():
         return PartyAnalytics.get_norm_attorneys_associated_with_norm_party(
             q='caseTypeId:"CTYPATMYyaJekdgj2c" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00]',
