@@ -65,6 +65,7 @@ class CaseUpdatePreview(ModelNormal):
             'COMPLETE': "COMPLETE",
             'FAILURE': "FAILURE",
             'IN_PROGRESS': "IN_PROGRESS",
+            'DELAYED': "DELAYED",
         },
     }
 

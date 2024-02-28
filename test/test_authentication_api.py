@@ -16,5 +16,5 @@ class TestAuthentication:
         response = Authentication.generate_new_token()
         return Authentication.invalidate_token(token_id=response[0].token_id)
 
-    # def test_invalidate_all_tokens():
-    #     return Authentication.invalidate_all_tokens()
+    def test_invalidate_all_tokens():
+        return Authentication.invalidate_all_tokens()

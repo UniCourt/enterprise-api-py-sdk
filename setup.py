@@ -4,7 +4,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 os.chdir(here)
 
 NAME = "unicourt"
-VERSION = "1.0"
+VERSION = os.getenv("SDK_VERSION")
 # To install the library, run the following
 #
 # python setup.py install
@@ -12,11 +12,7 @@ VERSION = "1.0"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = [
-    "urllib3 >= 1.25.3",
-    "python-dateutil",
-]
-
+REQUIRES = ["python_dateutil >= 2.5.3", "urllib3 >= 1.25.3"]
 
 setup(
     name=NAME,
@@ -24,7 +20,12 @@ setup(
     description="Python bindings for the UniCourt Enterprise APIs",
     author="UniCourt",
     author_email="support@unicourt.com",
+    license="",
     url="https://unicourt.com/",
+    project_urls={
+        "Source": "https://github.com/UniCourt/enterprise-api-py-sdk/tree/main",
+        "Documentation": "https://docs.unicourt.com/",
+    },
     keywords=["UniCourt", "UniCourt Python Package",
               "UniCourt Enterprise APIs"],
     python_requires=">=3.6",

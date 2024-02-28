@@ -97,7 +97,7 @@ class CaseCountAnalyticsByNormParty(ModelNormal):
             'object': (str,),  # noqa: E501
             'norm_party_id': (str,),  # noqa: E501
             'norm_party_name': (str,),  # noqa: E501
-            'case_search_api': (str,),  # noqa: E501
+            'case_search_api': (str, none_type,),  # noqa: E501
             'case_count': (int,),  # noqa: E501
         }
 
@@ -127,7 +127,7 @@ class CaseCountAnalyticsByNormParty(ModelNormal):
         Args:
             norm_party_id (str):
             norm_party_name (str):
-            case_search_api (str): Link to cases for this criteria.
+            case_search_api (str, none_type): Link to cases for this criteria.
             case_count (int):
 
         Keyword Args:
@@ -225,7 +225,7 @@ class CaseCountAnalyticsByNormParty(ModelNormal):
         Args:
             norm_party_id (str):
             norm_party_name (str):
-            case_search_api (str): Link to cases for this criteria.
+            case_search_api (str, none_type): Link to cases for this criteria.
             case_count (int):
 
         Keyword Args:

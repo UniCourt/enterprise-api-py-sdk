@@ -50,7 +50,7 @@ class CaseUpdate:
         """Add Case Update for the requested Case Id.  
 
 
-        Request case updates for the specified case.  
+        Request case updates for the specified case. The status will be ``IN_PROGRESS`` after it has been requested. If the request is not processed within 4 hours, it will be reported as ``DELAYED``.  If the request is still incomplete after 4 hours, it will remain in the DELAYED status for up to 72 hours after the request was approved. Such requests will be recorded as ``TIMEOUT`` after 72 hours.  
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

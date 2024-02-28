@@ -6,8 +6,11 @@ on:
     branches:
       - main
 jobs:
-  run-script:
+  test:
     runs-on: ubuntu-latest
+    env:
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
@@ -16,10 +19,9 @@ jobs:
           python-version: '3.9'
       - name: Install UniCourt Python SDK       
         run: python setup.py install
+      - name: Checking secrets exist
+        run: echo "CLIENT_ID is ${{secrets.CLIENT_ID}} and CLIENT_SECRET is ${{secrets.CLIENT_SECRET}}"
+      - name: Checking env's exist
+        run: echo "CLIENT_ID is $CLIENT_ID and CLIENT_SECRET is $CLIENT_SECRET"
       - name: Run SDK test
-        env:
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          PACER_USER_ID: ${{ secrets.PACER_USER_ID }}
-          PACER_CLIENT_CODE: ${{ secrets.PACER_CLIENT_CODE }}
-        run: python test/base.py --exclude TestPacer
+        run: cd test && python base.py --exclude TestPacer

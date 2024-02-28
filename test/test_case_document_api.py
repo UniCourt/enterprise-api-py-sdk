@@ -5,11 +5,11 @@ from unicourt.sdk.CaseDocuments import CaseDocuments
 
 class TestCaseDocuments:
 
-    # def test_get_case_document_download_by_id_with_no_preview():
-    #     return CaseDocuments.get_case_document_download_by_id(
-    #         case_document_id='CDOCaqe42a86394f63',
-    #         is_preview_document=True
-    #     )
+    def test_get_case_document_download_by_id_with_no_preview():
+        return CaseDocuments.get_case_document_download_by_id(
+            case_document_id='CDOCaqe42a86394f63',
+            is_preview_document=True
+        )
 
     def test_get_case_document_download_by_id_with_preview():
         return CaseDocuments.get_case_document_download_by_id(

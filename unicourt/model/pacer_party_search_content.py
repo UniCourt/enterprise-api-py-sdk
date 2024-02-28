@@ -60,11 +60,13 @@ class PACERPartySearchContent(ModelNormal):
 
     allowed_values = {
         ('pcl_jurisdiction_type',): {
+            'None': None,
             'APPELLATE': "Appellate",
             'BANKRUPTCY': "Bankruptcy",
             'CRIMINAL': "Criminal",
             'CIVIL': "Civil",
             'MULTI-DISTRICT_LITIGATION': "Multi-district Litigation",
+            'NULL': "null",
         },
     }
 
@@ -135,7 +137,7 @@ class PACERPartySearchContent(ModelNormal):
         lazy_import()
         return {
             'object': (str,),  # noqa: E501
-            'pcl_jurisdiction_type': (str,),  # noqa: E501
+            'pcl_jurisdiction_type': (str, none_type,),  # noqa: E501
             'pcl_case_id': (int,),  # noqa: E501
             'pcl_case_number_full': (str, none_type,),  # noqa: E501
             'pcl_case_title': (str, none_type,),  # noqa: E501
@@ -191,7 +193,7 @@ class PACERPartySearchContent(ModelNormal):
         """PACERPartySearchContent - a model defined in OpenAPI
 
         Args:
-            pcl_jurisdiction_type (str): Link to case in the case management/electronic case files (CM/ECF) system at the court.
+            pcl_jurisdiction_type (str, none_type): Link to case in the case management/electronic case files (CM/ECF) system at the court.
             pcl_case_id (int): Sequentially generated number that identifies the case.
             pcl_case_number_full (str, none_type): Case Number.
             pcl_case_title (str, none_type): Title of the case.
@@ -315,7 +317,7 @@ class PACERPartySearchContent(ModelNormal):
         """PACERPartySearchContent - a model defined in OpenAPI
 
         Args:
-            pcl_jurisdiction_type (str): Link to case in the case management/electronic case files (CM/ECF) system at the court.
+            pcl_jurisdiction_type (str, none_type): Link to case in the case management/electronic case files (CM/ECF) system at the court.
             pcl_case_id (int): Sequentially generated number that identifies the case.
             pcl_case_number_full (str, none_type): Case Number.
             pcl_case_title (str, none_type): Title of the case.

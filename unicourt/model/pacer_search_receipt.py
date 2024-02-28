@@ -80,7 +80,7 @@ class PACERSearchReceipt(ModelNormal):
             'max_length': 100,
         },
         ('search',): {
-            'max_length': 255,
+            'max_length': 1000000,
         },
         ('description',): {
             'max_length': 100,

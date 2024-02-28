@@ -97,7 +97,7 @@ class CaseCountAnalyticsByNormAttorney(ModelNormal):
             'object': (str,),  # noqa: E501
             'norm_attorney_id': (str,),  # noqa: E501
             'norm_attorney_name': (str,),  # noqa: E501
-            'case_search_api': (str,),  # noqa: E501
+            'case_search_api': (str, none_type,),  # noqa: E501
             'case_count': (int,),  # noqa: E501
         }
 
@@ -127,7 +127,7 @@ class CaseCountAnalyticsByNormAttorney(ModelNormal):
         Args:
             norm_attorney_id (str):
             norm_attorney_name (str):
-            case_search_api (str): Link to cases for this criteria.
+            case_search_api (str, none_type): Link to cases for this criteria.
             case_count (int):
 
         Keyword Args:
@@ -225,7 +225,7 @@ class CaseCountAnalyticsByNormAttorney(ModelNormal):
         Args:
             norm_attorney_id (str):
             norm_attorney_name (str):
-            case_search_api (str): Link to cases for this criteria.
+            case_search_api (str, none_type): Link to cases for this criteria.
             case_count (int):
 
         Keyword Args:

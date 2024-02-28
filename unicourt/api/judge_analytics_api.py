@@ -54,12 +54,11 @@ class JudgeAnalyticsApi(object):
             params_map={
                 'all': [
                     'norm_judge_id',
-                    'page_number',
                     'q',
+                    'page_number',
                 ],
                 'required': [
                     'norm_judge_id',
-                    'page_number',
                 ],
                 'nullable': [
                 ],
@@ -67,8 +66,8 @@ class JudgeAnalyticsApi(object):
                 ],
                 'validation': [
                     'norm_judge_id',
-                    'page_number',
                     'q',
+                    'page_number',
                 ]
             },
             root_map={
@@ -77,12 +76,12 @@ class JudgeAnalyticsApi(object):
                         'max_length': 18,
                         'min_length': 18,
                     },
+                    ('q',): {
+                        'max_length': 2048,
+                    },
                     ('page_number',): {
 
                         'inclusive_minimum': 1,
-                    },
-                    ('q',): {
-                        'max_length': 2048,
                     },
                 },
                 'allowed_values': {
@@ -90,20 +89,20 @@ class JudgeAnalyticsApi(object):
                 'openapi_types': {
                     'norm_judge_id':
                         (str,),
-                    'page_number':
-                        (int,),
                     'q':
                         (str,),
+                    'page_number':
+                        (int,),
                 },
                 'attribute_map': {
                     'norm_judge_id': 'normJudgeId',
-                    'page_number': 'pageNumber',
                     'q': 'q',
+                    'page_number': 'pageNumber',
                 },
                 'location_map': {
                     'norm_judge_id': 'path',
-                    'page_number': 'query',
                     'q': 'query',
+                    'page_number': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -186,12 +185,11 @@ class JudgeAnalyticsApi(object):
             params_map={
                 'all': [
                     'norm_judge_id',
-                    'page_number',
                     'q',
+                    'page_number',
                 ],
                 'required': [
                     'norm_judge_id',
-                    'page_number',
                 ],
                 'nullable': [
                 ],
@@ -199,8 +197,8 @@ class JudgeAnalyticsApi(object):
                 ],
                 'validation': [
                     'norm_judge_id',
-                    'page_number',
                     'q',
+                    'page_number',
                 ]
             },
             root_map={
@@ -209,12 +207,12 @@ class JudgeAnalyticsApi(object):
                         'max_length': 18,
                         'min_length': 18,
                     },
+                    ('q',): {
+                        'max_length': 2048,
+                    },
                     ('page_number',): {
 
                         'inclusive_minimum': 1,
-                    },
-                    ('q',): {
-                        'max_length': 2048,
                     },
                 },
                 'allowed_values': {
@@ -222,20 +220,20 @@ class JudgeAnalyticsApi(object):
                 'openapi_types': {
                     'norm_judge_id':
                         (str,),
-                    'page_number':
-                        (int,),
                     'q':
                         (str,),
+                    'page_number':
+                        (int,),
                 },
                 'attribute_map': {
                     'norm_judge_id': 'normJudgeId',
-                    'page_number': 'pageNumber',
                     'q': 'q',
+                    'page_number': 'pageNumber',
                 },
                 'location_map': {
                     'norm_judge_id': 'path',
-                    'page_number': 'query',
                     'q': 'query',
+                    'page_number': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -262,12 +260,11 @@ class JudgeAnalyticsApi(object):
             params_map={
                 'all': [
                     'norm_judge_id',
-                    'page_number',
                     'q',
+                    'page_number',
                 ],
                 'required': [
                     'norm_judge_id',
-                    'page_number',
                 ],
                 'nullable': [
                 ],
@@ -275,8 +272,8 @@ class JudgeAnalyticsApi(object):
                 ],
                 'validation': [
                     'norm_judge_id',
-                    'page_number',
                     'q',
+                    'page_number',
                 ]
             },
             root_map={
@@ -285,12 +282,12 @@ class JudgeAnalyticsApi(object):
                         'max_length': 18,
                         'min_length': 18,
                     },
+                    ('q',): {
+                        'max_length': 2048,
+                    },
                     ('page_number',): {
 
                         'inclusive_minimum': 1,
-                    },
-                    ('q',): {
-                        'max_length': 2048,
                     },
                 },
                 'allowed_values': {
@@ -298,20 +295,20 @@ class JudgeAnalyticsApi(object):
                 'openapi_types': {
                     'norm_judge_id':
                         (str,),
-                    'page_number':
-                        (int,),
                     'q':
                         (str,),
+                    'page_number':
+                        (int,),
                 },
                 'attribute_map': {
                     'norm_judge_id': 'normJudgeId',
-                    'page_number': 'pageNumber',
                     'q': 'q',
+                    'page_number': 'pageNumber',
                 },
                 'location_map': {
                     'norm_judge_id': 'path',
-                    'page_number': 'query',
                     'q': 'query',
+                    'page_number': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -460,24 +457,23 @@ class JudgeAnalyticsApi(object):
     def get_norm_attorneys_associated_with_norm_judge(
         self,
         norm_judge_id,
-        page_number,
         **kwargs
     ):
         """Attorneys Associated with the Judge.  # noqa: E501
 
-        Returns a list of attorneys associated with a judge. ## Terms and Connectors | Connector | Schema   | Description  | Example | | ------| ------| ------|------| | **AND** ||Find analytics containing all connected terms. The word AND does not have to be capitalized.|**courtId:\"CORTV4vCEaKrhystBz\" AND courtLocationId:\"COLO6b82CkRqS846hx\"**| | **IN()** || Allows you to specify multiple values, for a limit of up to 10.| **courtLocationId IN (\"COLODj4BBVTho3pKpz\",\"COLOPUfJRhw5yPxgRi\")**| | **courtId** | Multiple Ids Allowed  |Find Analytics for a particular Court Object. | **courtId:\"CORTV4vCEaKrhystBz\"** | | **courtSystemId** | Multiple Ids Allowed  |Find Analytics for a particular Court System Object. | **courtSystemId:\"COSYACHBdMewtaG5DY\"** | | **courtTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Court Type Object. | **courtTypeId:\"COTPm8jjc2PAydpFhq\"** | | **courtLocationId** | Multiple Ids Allowed  |Find Analytics for a particular Court Location Object. | **courtLocationId:\"COLO6b82CkRqS846hx\"** | | **caseTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Object. | **caseTypeId:\"CTYPATMYyaJekdgj2c\"** | | **caseTypeGroupId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Group Object. | **caseTypeGroupId:\"CTYG8gZ6hPRKhhYi4Y\"** | | **areaOfLawId** | Multiple Ids Allowed  |Find Analytics for a particular Area Of Law Object. | **areaOfLawId:\"AOFL2UxEWfVmTPMyqf\"** | | **caseClassId** | Multiple Ids Allowed  |Find Analytics for a particular Case Class Category Object. | **caseClassId:\"CSCLNjbKTN7Yfo2wdb\"** | | **caseFiledDate** | Single Allowed |Find Analytics within a particular date range. | **caseFiledDate:[2018-05-08T00:00:00+00:00TO2019-05-08T00:00:00+00:00]** | | **JurisdictionGeo** | Multiple Ids Allowed  |Find Analytics within a particular Jurisdiction Geo. | **(JurisdictionGeo:(state:\"California\"))** | | **confidenceScore** | Single Allowed |Find Analytics for a given ConfidenceScore  | **confidenceScore:[0.5 TO \\*]** | | **bestMatch** | Single Allowed |True if the normEntity has the highest Confidence Score of all possible normEntities | **bestMatch:true** | <br> ## Example Query Query to get all attorneys associated with judge with norm id NJUDT7jCZyFNeLGpRq of all cases with case type id CTYPATMYyaJekdgj2c and case filed date between Jan 1st, 2017 to Nov 30th,2021<br> q=caseTypeId:\"CTYPATMYyaJekdgj2c\" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00] <br><br>   # noqa: E501
+        Search for attorneys who have appeared before the specified judge using a keyword expression. ## Terms and Connectors | Connector | Schema   | Description  | Example | | ------| ------| ------|------| | **AND** ||Find analytics containing all connected terms. The word AND does not have to be capitalized.|**courtId:\"CORTV4vCEaKrhystBz\" AND courtLocationId:\"COLO6b82CkRqS846hx\"**| | **IN()** || Allows you to specify multiple values, for a limit of up to 10.| **courtLocationId IN (\"COLODj4BBVTho3pKpz\",\"COLOPUfJRhw5yPxgRi\")**| | **courtId** | Multiple Ids Allowed  |Find Analytics for a particular Court Object. | **courtId:\"CORTV4vCEaKrhystBz\"** | | **courtSystemId** | Multiple Ids Allowed  |Find Analytics for a particular Court System Object. | **courtSystemId:\"COSYACHBdMewtaG5DY\"** | | **courtTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Court Type Object. | **courtTypeId:\"COTPm8jjc2PAydpFhq\"** | | **courtLocationId** | Multiple Ids Allowed  |Find Analytics for a particular Court Location Object. | **courtLocationId:\"COLO6b82CkRqS846hx\"** | | **caseTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Object. | **caseTypeId:\"CTYPGkaW3aGJyKGyfn\"** | | **caseTypeGroupId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Group Object. | **caseTypeGroupId:\"CTYGBDwLfbbNBPBn5e\"** | | **areaOfLawId** | Multiple Ids Allowed  |Find Analytics for a particular Area Of Law Object. | **areaOfLawId:\"AOFL2UxEWfVmTPMyqf\"** | | **caseClassId** | Multiple Ids Allowed  |Find Analytics for a particular Case Class Category Object. | **caseClassId:\"CSCLNjbKTN7Yfo2wdb\"** | | **caseFiledDate** | Single Allowed |Find Analytics within a particular date range. | **caseFiledDate:[2018-05-08T00:00:00+00:00TO2019-05-08T00:00:00+00:00]** | | **JurisdictionGeo** | Multiple Ids Allowed  |Find Analytics within a particular Jurisdiction Geo. | **(JurisdictionGeo:(state:\"California\"))** | | **confidenceScore** | Single Allowed |Find Analytics for a given ConfidenceScore  | **confidenceScore:[0.3 TO \\*]** | | **bestMatch** | Single Allowed |True if the normEntity has the highest Confidence Score of all possible normEntities | **bestMatch:true** | <br> ## Example Query Query to get all attorneys associated with judge with norm id NJUDT7jCZyFNeLGpRq of all cases with case type id CTYPGkaW3aGJyKGyfn and case filed date between Jan 1st, 2017 to Nov 30th,2021<br> q=caseTypeId:\"CTYPGkaW3aGJyKGyfn\" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00] <br><br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_norm_attorneys_associated_with_norm_judge(norm_judge_id, page_number, async_req=True)
+        >>> thread = api.get_norm_attorneys_associated_with_norm_judge(norm_judge_id, async_req=True)
         >>> result = thread.get()
 
         Args:
-            norm_judge_id (str): Norm  ID of the Judge.   - minimum: 18   - maximum: 18 
-            page_number (int): Page number. - minimum: 1 
+            norm_judge_id (str): The normJudgeId value of the desired judge.   - minimum: 18   - maximum: 18 
 
         Keyword Args:
-            q (str): The URL encoded query you are searching for. The query can be as simple as a keyword, but supports many additional options and filters. All options are documented above.. [optional]
+            q (str): The keyword expression targeting the desired attorneys.. [optional]
+            page_number (int): The page number of the desired page of results. - minimum: 1 . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -541,8 +537,6 @@ class JudgeAnalyticsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['norm_judge_id'] = \
             norm_judge_id
-        kwargs['page_number'] = \
-            page_number
         return self.get_norm_attorneys_associated_with_norm_judge_endpoint.call_with_http_info(**kwargs)
 
     def get_norm_judge_by_id(
@@ -552,7 +546,7 @@ class JudgeAnalyticsApi(object):
     ):
         """Norm Judge Details.  # noqa: E501
 
-        The Judge API allows you to look up Judge Details by normJudgeId.   # noqa: E501
+        Retrieve the specified judge.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -560,7 +554,7 @@ class JudgeAnalyticsApi(object):
         >>> result = thread.get()
 
         Args:
-            norm_judge_id (str): Norm  ID of the Judge.   - minimum: 18   - maximum: 18 
+            norm_judge_id (str): The normJudgeId value of the desired judge.   - minimum: 18   - maximum: 18 
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -631,24 +625,23 @@ class JudgeAnalyticsApi(object):
     def get_norm_law_firms_associated_with_norm_judge(
         self,
         norm_judge_id,
-        page_number,
         **kwargs
     ):
         """Law Firms Associated With the Judge.  # noqa: E501
 
-        Returns a list of Law Firms a Judge has heard. ## Terms and Connectors | Connector | Schema   | Description  | Example | | ------| ------| ------|------| | **AND** ||Find analytics containing all connected terms. The word AND does not have to be capitalized.|**courtId:\"CORTV4vCEaKrhystBz\" AND courtLocationId:\"COLOPUfJRhw5yPxgRi\"**| | **IN()** || Allows you to specify multiple values, for a limit of up to 10.| **courtLocationId IN (\"COLODj4BBVTho3pKpz\",\"COLOPUfJRhw5yPxgRi\")**| | **courtId** | Multiple Ids Allowed  |Find Analytics for a particular Court Object. | **courtId:\"CORTV4vCEaKrhystBz\"** | | **courtSystemId** | Multiple Ids Allowed  |Find Analytics for a particular Court System Object. | **courtSystemId:\"COSYACHBdMewtaG5DY\"** | | **courtTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Court Type Object. | **courtTypeId:\"COTPm8jjc2PAydpFhq\"** | | **courtLocationId** | Multiple Ids Allowed  |Find Analytics for a particular Court Location Object. | **courtLocationId:\"COLO6b82CkRqS846hx\"** | | **caseTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Object. | **caseTypeId:\"CTYPATMYyaJekdgj2c\"** | | **caseTypeGroupId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Group Object. | **caseTypeGroupId:\"CTYG8gZ6hPRKhhYi4Y\"** | | **areaOfLawId** | Multiple Ids Allowed  |Find Analytics for a particular Area Of Law Object. | **areaOfLawId:\"AOFL2UxEWfVmTPMyqf\"** | | **caseClassId** | Multiple Ids Allowed  |Find Analytics for a particular Case Class Category Object. | **caseClassId:\"CSCLNjbKTN7Yfo2wdb\"** | | **caseFiledDate** | Single Allowed  |Find Analytics within a particular date range. | **caseFiledDate:[2018-05-08T00:00:00+00:00TO2019-05-08T00:00:00+00:00]** | | **JurisdictionGeo**  | Multiple Ids Allowed |Find Analytics within a particular Jurisdiction Geo. | **(JurisdictionGeo:(state:\"California\"))** | | **confidenceScore** | Single Allowed |Find Analytics for a given ConfidenceScore  | **confidenceScore:[0.5 TO \\*]** | | **bestMatch** | Single Allowed |True if the normEntity has the highest Confidence Score of all possible normEntities | **bestMatch:true** | <br> ## Example Query Query to get all Law Firms associated with judge with norm id NJUDT7jCZyFNeLGpRq of all cases with case type id CTYPATMYyaJekdgj2c and case filed date between Jan 1st, 2017 to Nov 30th,2021<br> q=caseTypeId:\"CTYPATMYyaJekdgj2c\" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00] <br><br>   # noqa: E501
+        Search for law firms that have appeared before the specified judge using a keyword expression. ## Terms and Connectors | Connector | Schema   | Description  | Example | | ------| ------| ------|------| | **AND** ||Find analytics containing all connected terms. The word AND does not have to be capitalized.|**courtId:\"CORTV4vCEaKrhystBz\" AND courtLocationId:\"COLOPUfJRhw5yPxgRi\"**| | **IN()** || Allows you to specify multiple values, for a limit of up to 10.| **courtLocationId IN (\"COLODj4BBVTho3pKpz\",\"COLOPUfJRhw5yPxgRi\")**| | **courtId** | Multiple Ids Allowed  |Find Analytics for a particular Court Object. | **courtId:\"CORTV4vCEaKrhystBz\"** | | **courtSystemId** | Multiple Ids Allowed  |Find Analytics for a particular Court System Object. | **courtSystemId:\"COSYACHBdMewtaG5DY\"** | | **courtTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Court Type Object. | **courtTypeId:\"COTPm8jjc2PAydpFhq\"** | | **courtLocationId** | Multiple Ids Allowed  |Find Analytics for a particular Court Location Object. | **courtLocationId:\"COLO6b82CkRqS846hx\"** | | **caseTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Object. | **caseTypeId:\"CTYPGkaW3aGJyKGyfn\"** | | **caseTypeGroupId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Group Object. | **caseTypeGroupId:\"CTYGBDwLfbbNBPBn5e\"** | | **areaOfLawId** | Multiple Ids Allowed  |Find Analytics for a particular Area Of Law Object. | **areaOfLawId:\"AOFL2UxEWfVmTPMyqf\"** | | **caseClassId** | Multiple Ids Allowed  |Find Analytics for a particular Case Class Category Object. | **caseClassId:\"CSCLNjbKTN7Yfo2wdb\"** | | **caseFiledDate** | Single Allowed  |Find Analytics within a particular date range. | **caseFiledDate:[2018-05-08T00:00:00+00:00TO2019-05-08T00:00:00+00:00]** | | **JurisdictionGeo**  | Multiple Ids Allowed |Find Analytics within a particular Jurisdiction Geo. | **(JurisdictionGeo:(state:\"California\"))** | | **confidenceScore** | Single Allowed |Find Analytics for a given ConfidenceScore  | **confidenceScore:[0.3 TO \\*]** | | **bestMatch** | Single Allowed |True if the normEntity has the highest Confidence Score of all possible normEntities | **bestMatch:true** | <br> ## Example Query Query to get all Law Firms associated with judge with norm id NJUDT7jCZyFNeLGpRq of all cases with case type id CTYPGkaW3aGJyKGyfn and case filed date between Jan 1st, 2017 to Nov 30th,2021<br> q=caseTypeId:\"CTYPGkaW3aGJyKGyfn\" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00] <br><br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_norm_law_firms_associated_with_norm_judge(norm_judge_id, page_number, async_req=True)
+        >>> thread = api.get_norm_law_firms_associated_with_norm_judge(norm_judge_id, async_req=True)
         >>> result = thread.get()
 
         Args:
-            norm_judge_id (str): Norm  ID of the Judge.   - minimum: 18   - maximum: 18 
-            page_number (int): Page number. - minimum: 1 
+            norm_judge_id (str): The normJudgeId value of the desired judge.   - minimum: 18   - maximum: 18 
 
         Keyword Args:
-            q (str): The URL encoded query you are searching for. The query can be as simple as a keyword, but supports many additional options and filters. All options are documented above.. [optional]
+            q (str): The keyword expression targeting the desired law firms.. [optional]
+            page_number (int): The page number of the desired page of results. - minimum: 1 . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -712,31 +705,28 @@ class JudgeAnalyticsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['norm_judge_id'] = \
             norm_judge_id
-        kwargs['page_number'] = \
-            page_number
         return self.get_norm_law_firms_associated_with_norm_judge_endpoint.call_with_http_info(**kwargs)
 
     def get_norm_parties_associated_with_norm_judge(
         self,
         norm_judge_id,
-        page_number,
         **kwargs
     ):
         """Parties Associated with the Judge.  # noqa: E501
 
-        Returns a list of Parties A Judge has seen. ## Terms and Connectors | Connector | Schema   | Description  | Example | | ------| ------| ------|------| | **AND** ||Find analytics containing all connected terms. The word AND does not have to be capitalized.|**courtId:\"CORTV4vCEaKrhystBz\" AND courtLocationId:\"COLO6b82CkRqS846hx\"**| | **IN()** || Allows you to specify multiple values, for a limit of up to 10.| **courtLocationId IN (\"COLODj4BBVTho3pKpz\",\"COLOPUfJRhw5yPxgRi\")**| | **courtId** | Multiple Ids Allowed  |Find Analytics for a particular Court Object. | **courtId:\"CORTV4vCEaKrhystBz\"** | | **courtSystemId** | Multiple Ids Allowed  |Find Analytics for a particular Court System Object. | **courtSystemId:\"COSYACHBdMewtaG5DY\"** | | **courtTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Court Type Object. | **courtTypeId:\"COTPm8jjc2PAydpFhq\"** | | **courtLocationId** | Multiple Ids Allowed  |Find Analytics for a particular Court Location Object. | **courtLocationId:\"COLO6b82CkRqS846hx\"** | | **caseTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Object. | **caseTypeId:\"CTYPATMYyaJekdgj2c\"** | | **caseTypeGroupId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Group Object. | **caseTypeGroupId:\"CTYG8gZ6hPRKhhYi4Y\"** | | **areaOfLawId** | Multiple Ids Allowed  |Find Analytics for a particular Area Of Law Object. | **areaOfLawId:\"AOFL2UxEWfVmTPMyqf\"** | | **caseClassId** | Multiple Ids Allowed  |Find Analytics for a particular Case Class Category Object. | **caseClassId:\"CSCLNjbKTN7Yfo2wdb\"** | | **caseFiledDate** | Single Allowed  |Find Analytics within a particular date range. | **caseFiledDate:[2018-05-08T00:00:00+00:00TO2019-05-08T00:00:00+00:00]** | | **JurisdictionGeo** | Multiple Ids Allowed  |Find Analytics within a particular Jurisdiction Geo. | **(JurisdictionGeo:(state:\"California\"))** | | **confidenceScore** | Single Allowed |Find Analytics for a given ConfidenceScore  | **confidenceScore:[0.5 TO \\*]** | | **bestMatch** | Single Allowed |True if the normEntity has the highest Confidence Score of all possible normEntities | **bestMatch:true** | <br> ## Example Query Query to get all Parties associated with judge with norm id NJUDT7jCZyFNeLGpRq of all cases with case type id CTYPATMYyaJekdgj2c and case filed date between Jan 1st, 2017 to Nov 30th,2021<br> q=caseTypeId:\"CTYPATMYyaJekdgj2c\" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00] <br><br>   # noqa: E501
+        Search for parties that have appeared before the specified judge using a keyword expression. ## Terms and Connectors | Connector | Schema   | Description  | Example | | ------| ------| ------|------| | **AND** ||Find analytics containing all connected terms. The word AND does not have to be capitalized.|**courtId:\"CORTV4vCEaKrhystBz\" AND courtLocationId:\"COLO6b82CkRqS846hx\"**| | **IN()** || Allows you to specify multiple values, for a limit of up to 10.| **courtLocationId IN (\"COLODj4BBVTho3pKpz\",\"COLOPUfJRhw5yPxgRi\")**| | **courtId** | Multiple Ids Allowed  |Find Analytics for a particular Court Object. | **courtId:\"CORTV4vCEaKrhystBz\"** | | **courtSystemId** | Multiple Ids Allowed  |Find Analytics for a particular Court System Object. | **courtSystemId:\"COSYACHBdMewtaG5DY\"** | | **courtTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Court Type Object. | **courtTypeId:\"COTPm8jjc2PAydpFhq\"** | | **courtLocationId** | Multiple Ids Allowed  |Find Analytics for a particular Court Location Object. | **courtLocationId:\"COLO6b82CkRqS846hx\"** | | **caseTypeId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Object. | **caseTypeId:\"CTYPGkaW3aGJyKGyfn\"** | | **caseTypeGroupId** | Multiple Ids Allowed  |Find Analytics for a particular Case Type Group Object. | **caseTypeGroupId:\"CTYGBDwLfbbNBPBn5e\"** | | **areaOfLawId** | Multiple Ids Allowed  |Find Analytics for a particular Area Of Law Object. | **areaOfLawId:\"AOFL2UxEWfVmTPMyqf\"** | | **caseClassId** | Multiple Ids Allowed  |Find Analytics for a particular Case Class Category Object. | **caseClassId:\"CSCLNjbKTN7Yfo2wdb\"** | | **caseFiledDate** | Single Allowed  |Find Analytics within a particular date range. | **caseFiledDate:[2018-05-08T00:00:00+00:00TO2019-05-08T00:00:00+00:00]** | | **JurisdictionGeo** | Multiple Ids Allowed  |Find Analytics within a particular Jurisdiction Geo. | **(JurisdictionGeo:(state:\"California\"))** | | **confidenceScore** | Single Allowed |Find Analytics for a given ConfidenceScore  | **confidenceScore:[0.3 TO \\*]** | | **bestMatch** | Single Allowed |True if the normEntity has the highest Confidence Score of all possible normEntities | **bestMatch:true** | <br> ## Example Query Query to get all Parties associated with judge with norm id NJUDT7jCZyFNeLGpRq of all cases with case type id CTYPGkaW3aGJyKGyfn and case filed date between Jan 1st, 2017 to Nov 30th,2021<br> q=caseTypeId:\"CTYPGkaW3aGJyKGyfn\" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00] <br><br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_norm_parties_associated_with_norm_judge(norm_judge_id, page_number, async_req=True)
+        >>> thread = api.get_norm_parties_associated_with_norm_judge(norm_judge_id, async_req=True)
         >>> result = thread.get()
 
         Args:
-            norm_judge_id (str): Norm  ID of the Judge.   - minimum: 18   - maximum: 18 
-            page_number (int): Page number. - minimum: 1 
+            norm_judge_id (str): The normJudgeId value of the desired judge.   - minimum: 18   - maximum: 18 
 
         Keyword Args:
-            q (str): The URL encoded query you are searching for. The query can be as simple as a keyword, but supports many additional options and filters. All options are documented above.. [optional]
+            q (str): The keyword expression targeting the desired parties.. [optional]
+            page_number (int): The page number of the desired page of results. - minimum: 1 . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -800,8 +790,6 @@ class JudgeAnalyticsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['norm_judge_id'] = \
             norm_judge_id
-        kwargs['page_number'] = \
-            page_number
         return self.get_norm_parties_associated_with_norm_judge_endpoint.call_with_http_info(**kwargs)
 
     def search_normalized_judges(
@@ -810,7 +798,7 @@ class JudgeAnalyticsApi(object):
     ):
         """Judge search.  # noqa: E501
 
-        ### All query parameters supported for this API can be found in below schema section. Schema --> NormJudgeSearchQueryObject   # noqa: E501
+        ### Search for a judge using a keyword expression.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -819,8 +807,8 @@ class JudgeAnalyticsApi(object):
 
 
         Keyword Args:
-            q (str): The URL encoded query you are searching for. The query can be as simple as a keyword, but supports many additional options and filters.</a> . [optional]
-            page_number (int): Query parameter specifying the page number of the search results to be retrieved. - Minimum: 1 - Maximum: 1000 . [optional]
+            q (str): The keyword expression targeting the desired judge.</a> . [optional]
+            page_number (int): The page number of the desired page of results. - Minimum: 1 - Maximum: 1000 . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -891,7 +879,7 @@ class JudgeAnalyticsApi(object):
     ):
         """Norm judge search results for a given normJudgeSearchId.  # noqa: E501
 
-        ### All query parameters supported for this API can be found in below schema section. Schema --> NormJudgeSearchQueryObject   # noqa: E501
+        ### Retrieve the desired search for a judge.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -899,10 +887,10 @@ class JudgeAnalyticsApi(object):
         >>> result = thread.get()
 
         Args:
-            norm_judge_search_id (str): Norm judge Search information for the given normJudgeSearchId.
+            norm_judge_search_id (str): The normJudgeSearchId value of the desired search.
 
         Keyword Args:
-            page_number (int): Query parameter specifying the page number of the search results to be retrieved. - Minimum: 1 - Maximum: 1000 . [optional]
+            page_number (int): The page number of the desired page of results. - Minimum: 1 - Maximum: 1000 . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

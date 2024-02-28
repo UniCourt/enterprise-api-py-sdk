@@ -21,6 +21,7 @@ pip install --upgrade unicourt
 Install from source :
 
 ```sh
+export SDK_VERSION=<new sdk version>
 python setup.py install
 ```
 
