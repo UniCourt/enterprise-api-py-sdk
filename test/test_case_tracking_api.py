@@ -5,28 +5,6 @@ from unicourt.sdk.CaseTracking import CaseTracking
 
 
 class TestCaseTracking:
-
-    # case_track_request = CaseTrackRequest(
-    #     case_track_params=CaseUpdateRequest(
-    #         case_id="CASEhq9d8b72d0800c",
-    #         pacer_options=CaseUpdatePacerOptions(
-    #             pacer_user_id="URKYwer3tyh5r56gq2",
-    #             pacer_client_code="Test UniCourt API",
-    #             fetch_participants_if_older_than_days=30,
-    #             refresh_type="fetchNewDocketEntries",
-    #             additional_page_array=[
-    #                 CaseUpdatePacerOptionsAdditionalPageArrayInner(
-    #                     page="caseSummary",
-    #                     fetch_if_older_than_days=30,
-    #                 ),
-    #             ],
-    #         ),
-    #     ),
-    #     schedule=CaseTrackSchedule(
-    #         type="weekly",
-    #         days=[1,3,5],
-    #     ),
-    # )
     def test_track_case():
         return CaseTracking.track_case(
             case_track_request=CaseTrackRequest(

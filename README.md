@@ -1,4 +1,4 @@
-# UniCourt Python SDK 
+# UniCourt Python SDK
 The UniCourt SDK provides simplified access to the UniCourt API for applications written in the Python programming language.
 
 
@@ -10,7 +10,7 @@ See the UniCourt data model here (requires UniCourt account): [UniCourt Data Mod
 
 ### Requirements
 
--   Python >=3.6
+-   Python >=3.7
 
 ## Installation
 You can use the source code if you want to modify the package and use it as per your need. If you just want to use the package, just run:
@@ -21,7 +21,6 @@ pip install --upgrade unicourt
 Install from source :
 
 ```sh
-export SDK_VERSION=<new sdk version>
 python setup.py install
 ```
 
