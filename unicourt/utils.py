@@ -2,8 +2,6 @@ import unicourt
 from collections import namedtuple
 
 # access client config through this function.
-
-
 def api_client():
     if not unicourt.configuration:
         unicourt.configuration = unicourt.Configuration(

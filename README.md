@@ -1,4 +1,4 @@
-# UniCourt Python SDK 
+# UniCourt Python SDK
 The UniCourt SDK provides simplified access to the UniCourt API for applications written in the Python programming language.
 
 
@@ -10,7 +10,7 @@ See the UniCourt data model here (requires UniCourt account): [UniCourt Data Mod
 
 ### Requirements
 
--   Python >=3.6
+-   Python >=3.7
 
 ## Installation
 You can use the source code if you want to modify the package and use it as per your need. If you just want to use the package, just run:
@@ -21,7 +21,6 @@ pip install --upgrade unicourt
 Install from source :
 
 ```sh
-export SDK_VERSION=<new sdk version>
 python setup.py install
 ```
 
@@ -79,6 +78,30 @@ for attorney in attorney_obj.norm_attorney_search_result_array:
 
 # Invalidate the generated access token
 Authentication.invalidate_token()
-
-
 ```
+
+## Python Error Exceptions
+SDK will throw Python error exceptions in the below mentioned scenario's.
+- When the request agruments or data passed to the SDK functions are incorrect.
+
+    Example :
+    ```
+    Callback.get_callbacks() got an unexpected keyword argument 'vardate'
+    ```
+- When the sever sends any error response.
+
+    Example :
+    ```
+    Reason: Internal Server Error
+    HTTP response headers: HTTPHeaderDict({'Date': 'Tue, 13 Aug 2024 09:31:41 GMT', 'Content-Type': 'application/json', 'Content-Length': '145', 'Connection': 'keep-alive', 'Apigw-Requestid': 'ccMvJhfYoAMEWzA='})
+    HTTP response body: {"object": "Exception", "code": "UN500", "message": "INTERNAL_SERVER_ERROR", "details": "Has encountered a situation which needs to be handled."}
+    ```
+- When the response has any new values which are not supported by the SDK. This can occur only when using the older version of SDK.
+
+    Example :
+    ```
+    1 validation error for ServiceStatusDownDetails
+    reason
+      Value error, must be one of enum values ('issueAtTheCourtSource', 'notIntegrated', 'brokenIntegration') [type=value_error, input_value='underMaintenance', input_type=str]
+        For further information visit https://errors.pydantic.dev/2.8/v/value_error
+    ```
