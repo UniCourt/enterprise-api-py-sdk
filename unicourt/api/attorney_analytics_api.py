@@ -42,6 +42,7 @@ class AttorneyAnalyticsApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+
     @validate_call
     def get_norm_attorney_by_id(
         self,
@@ -1754,5 +1755,4 @@ class AttorneyAnalyticsApi:
             _host=_host,
             _request_auth=_request_auth
         )
-
 

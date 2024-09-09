@@ -1,4 +1,4 @@
-# UniCourt Python SDK 
+# UniCourt Python SDK
 The UniCourt SDK provides simplified access to the UniCourt API for applications written in the Python programming language.
 
 
@@ -21,7 +21,6 @@ pip install --upgrade unicourt
 Install from source :
 
 ```sh
-export SDK_VERSION=<new sdk version>
 python setup.py install
 ```
 
