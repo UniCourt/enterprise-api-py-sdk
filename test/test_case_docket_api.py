@@ -2,24 +2,20 @@ from unicourt.sdk.CaseDocket import CaseDocket
 
 
 class TestCaseDocket:
-    # def test_get_attorney_associated_parties():
-    #     return CaseDocket.get_attorney_associated_parties(
-    #         attorney_id='ATTYgu01be2e4de654'
-    #     )
+    def test_get_attorney_associated_parties():
+        return CaseDocket.get_attorney_associated_parties(
+            attorney_id='ATTYgu01be2e4de654'
+        )
 
-    # def test_get_attorney_by_id():
-    #     return CaseDocket.get_attorney_by_id(
-    #         attorney_id='ATTYgu01be2e4de654')
+    def test_get_attorney_by_id():
+        return CaseDocket.get_attorney_by_id(
+            attorney_id='ATTYgu01be2e4de654'
+        )
 
-    # def test_get_case():
-    #     return CaseDocket.get_case(
-    #         case_id='CASEakfbd1817d7431',
-    #     )
-
-    # def test_get_case_sealed_case():
-    #     return CaseDocket.get_case(
-    #         case_id='CASEakfbd1817d7431',
-    #     )
+    def test_get_case():
+        return CaseDocket.get_case(
+            case_id='CASEakfbd1817d7431',
+        )
 
     def test_get_case_attorneys():
         return CaseDocket.get_case_attorneys(

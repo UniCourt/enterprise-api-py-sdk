@@ -2,24 +2,23 @@ from unicourt.sdk.CourtStandards import CourtStandards
 
 
 class TestCourtStandards:
-
     def test_get_appeal_courts_for_court():
-        return CourtStandards. get_appeal_courts_for_court(
+        return CourtStandards.get_appeal_courts_for_court(
             court_id='CORThSxcef8eGUSkuC'
         )
 
     def test_get_area_of_law():
-        return CourtStandards. get_area_of_law(
+        return CourtStandards.get_area_of_law(
             area_of_law_id='AOFLGAd9Ah5qkTRNw9'
         )
 
     def test_get_areas_of_law():
-        return CourtStandards. get_areas_of_law(
+        return CourtStandards.get_areas_of_law(
             q='areaOfLawId: "AOFLGAd9Ah5qkTRNw9"'
         )
 
     def test_get_attorney_representation_type():
-        return CourtStandards. get_attorney_representation_type(
+        return CourtStandards.get_attorney_representation_type(
             attorney_representation_type_id='ATRPYgPMGJufoCsR6Q'
         )
 
@@ -98,6 +97,21 @@ class TestCourtStandards:
             q='caseStatusId: "CSSTBtqf3R2LYFt4j4"'
         )
 
+    def test_get_cause_of_action():
+        return CourtStandards.get_cause_of_action(
+            cause_of_action_id = 'CATNoLU7sWaGjWtkBx'
+        )
+
+    def test_get_cause_of_action_additional_data():
+        return CourtStandards.get_cause_of_action_additional_data(
+            cause_of_action_additional_data_id = 'CAADoLU7sWaGjWtkBx'
+        )
+
+    def test_get_cause_of_action_group():
+        return CourtStandards.get_cause_of_action_group(
+            cause_of_action_group_id = 'CAGPoLU7sWaGjWtkBx'
+        )
+
     def test_get_causes_of_action():
         return CourtStandards.get_causes_of_action(
             q='causeOfActionGroupId:"CAGPiHoKn66p3bkcNs"'
@@ -111,6 +125,56 @@ class TestCourtStandards:
     def test_get_causes_of_action_group():
         return CourtStandards.get_causes_of_action_group(
             q='causeOfActionGroupId:"CAGPiHoKn66p3bkcNs"'
+        )
+
+    def test_get_charge():
+        return CourtStandards.get_charge(
+            charge_id = 'CHRGiHoKn66p3bkcNs'
+        )
+
+    def test_get_charge_additional_data():
+        return CourtStandards.get_charge_additional_data(
+            charge_additional_data_id = 'CHADiHoKn66p3bkcNs'
+        )
+
+    def test_get_charge_degree():
+        return CourtStandards.get_charge_degree(
+            charge_degree_id = 'CHDGiHoKn66p3bkcNs'
+        )
+
+    def test_get_charge_group():
+        return CourtStandards.get_charge_group(
+            charge_group_id = 'CHGPiHoKn66p3bkcNs'
+        )
+
+    def test_get_charge_groups():
+        return CourtStandards.get_charge_groups(
+            q = 'chargeGroupId:"CHRGoLU7sWaGjWtkBx"'
+        )
+
+    def test_get_charge_severity():
+        return CourtStandards.get_charge_severity(
+            charge_severity_id = 'CHSEiHoKn66p3bkcNs'
+        )
+
+    def test_get_charges():
+        return CourtStandards.get_charges(
+            q='chargeId:"CHRGoLU7sWaGjWtkBx"'
+        )
+
+    def test_get_charges_additional_data():
+        return CourtStandards.get_charges_additional_data(
+            q = 'chargeAdditionalDataId:"CHADoLU7sWaGjWtkBx"'
+        )
+
+    def test_get_charges_degree():
+        return CourtStandards.get_charges_degree(
+            q = 'chargeDegreeId:"CHDGiHoKn66p3bkcNs"'
+        )
+
+    def test_get_charges_severity():
+        return CourtStandards.get_charges_severity(
+            q = 'chargeSeverityId:"CHSEiHoKn66p3bkcNs"'
         )
 
     def test_get_court():
@@ -210,7 +274,6 @@ class TestCourtStandards:
     def test_get_party_role_group():
         return CourtStandards.get_party_role_group(
             party_role_group_id='PTYGBnjxbx6tKNfVEP'
-
         )
 
     def test_get_party_role_groups():
