@@ -44,7 +44,6 @@ class CaseDocumentsApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_case_document_download_by_id(
         self,

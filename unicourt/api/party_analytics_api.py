@@ -42,7 +42,6 @@ class PartyAnalyticsApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_norm_attorneys_associated_with_norm_party(
         self,

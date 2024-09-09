@@ -53,7 +53,6 @@ class CaseAnalyticsApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_case_count_analytics_by_area_of_law(
         self,
