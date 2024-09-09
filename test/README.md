@@ -2,7 +2,7 @@
 
 
 ## Getting started 
-To run the SDK tests you need python >= 3.6 and Git installed. 
+To run the SDK tests you need python >= 3.7 and Git installed. 
 
 ## Test Parameters
 - Run all tests

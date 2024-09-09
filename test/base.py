@@ -19,10 +19,14 @@ class TestBase:
 
     def run(self):
         args = self.parser.parse_args()
-        # getting the list of test file and re-order authentication test file at end to run.
+
+        # Getting the list of test file.
         module_list = [re.sub("\.py", "", module) for module in os.listdir() if module.startswith("test") and module.endswith("py")]
+
+        # Re-order authentication test file at end to run.
         index = module_list.index('test_authentication_api')
         module_list[index], module_list[-1] = module_list[-1], module_list[index]
+
         for module_name in module_list:
             module = __import__(module_name)
             class_name = [class_name for class_name in dir(module) if class_name.startswith('Test')][0]

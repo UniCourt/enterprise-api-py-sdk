@@ -2,7 +2,6 @@ from unicourt.sdk.AttorneyAnalytics import AttorneyAnalytics
 
 
 class TestAttorneyAnalytics:
-
     def test_get_norm_attorney_by_id():
         return AttorneyAnalytics.get_norm_attorney_by_id(
             norm_attorney_id="NATYs4P6kDBkhKL8CF")
