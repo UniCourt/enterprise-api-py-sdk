@@ -37,11 +37,3 @@ class TestLawFirmAnalytics:
         return LawFirmAnalytics.search_normalized_law_firms_by_id(
             norm_law_firm_search_id='LSRCeCT9pC3maopkW7'
         )
-
-
-def main():
-    TestLawFirmAnalytics().run()
-
-
-if __name__ == "__main__":
-    main()

@@ -6,7 +6,7 @@ class TestUsageAPI:
         return Usage.get_billing_cycles()
 
     def test_get_billing_usage_by_billing_cycle():
-        billing_obj, status = Usage.get_billing_cycles()
+        billing_obj, _ = Usage.get_billing_cycles()
         billing_cycle_date = billing_obj.billing_cycle_array[0]
         return Usage.get_billing_usage_by_billing_cycle(
             billing_cycle=billing_cycle_date)

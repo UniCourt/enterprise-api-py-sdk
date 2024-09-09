@@ -7,7 +7,6 @@ class TestPartyAnalytics:
             q='caseTypeId:"CTYPATMYyaJekdgj2c" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00]',
             norm_party_id='NORGrPmQyLdx9NGHcT',
             page_number=1
-
         )
 
     def test_get_norm_judges_associated_with_norm_party():

@@ -3,7 +3,6 @@ from unicourt.sdk.Authentication import Authentication
 
 
 class TestAuthentication:
-
     def test_list_all_token_ids():
         return Authentication.list_all_token_ids()
 

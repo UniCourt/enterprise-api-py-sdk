@@ -82,7 +82,6 @@ class TestCaseAnalytics:
         )
 
     def test_get_case_count_analytics_by_norm_party():
-
         return CaseAnalytics.get_case_count_analytics_by_norm_party(
             page_number=1,
             q='caseTypeId:"CTYPATMYyaJekdgj2c" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00]'
