@@ -45,7 +45,7 @@ class CaseDocument(BaseModel):
     estimated_order_duration: Optional[Annotated[str, Field(min_length=10, strict=True, max_length=25)]] = Field(default='estimateUnavailable', description="Estimated duration of a Order.", alias="estimatedOrderDuration")
     download_api: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Link to either view the document if it is downloaded and already present in the UniCourt CrowdSourced Library.", alias="downloadAPI")
     first_fetch_date: Optional[Annotated[str, Field(min_length=25, strict=True, max_length=25)]] = Field(default=None, description="Is the date when the document was first fetched from the court site.", alias="firstFetchDate")
-    source_data_status: Optional[StrictStr] = Field(default=None, description="The status of source data of document. If the value of sourceDataStatus is SOURCE_DEPRECATED then it means that the Document has been migrated from old court site to a new court site and the data being shown in the API response is from a old court site. If the sourceDataStatus is NO_LONGER_AVAILABLE_IN_COURT then it means that a particular case is invalid in the court site.", alias="sourceDataStatus")
+    source_data_status: Optional[StrictStr] = Field(default=None, description="The status of source data of document. If the value of sourceDataStatus is SOURCE_DEPRECATED then it means that the Document has been migrated from old court site to a new court site and the data being shown in the API response is from a old court site. If the sourceDataStatus is CURRENTLY_UNAVAILABLE_IN_COURT then it means that a particular document currently not available in the court site.", alias="sourceDataStatus")
     __properties: ClassVar[List[str]] = ["object", "caseDocumentId", "sortOrder", "name", "description", "documentFiledDate", "parentDocumentId", "childDocumentIdArray", "pages", "isPreviewAvailable", "previewDocument", "price", "inLibrary", "addedToLibraryDate", "estimatedOrderDuration", "downloadAPI", "firstFetchDate", "sourceDataStatus"]
 
     @field_validator('estimated_order_duration')
@@ -64,8 +64,8 @@ class CaseDocument(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['NO_LONGER_AVAILABLE_IN_COURT', 'SEALED', 'null']):
-            raise ValueError("must be one of enum values ('NO_LONGER_AVAILABLE_IN_COURT', 'SEALED', 'null')")
+        if value not in set(['CURRENTLY_UNAVAILABLE_IN_COURT', 'NO_LONGER_AVAILABLE_IN_COURT', 'SEALED', 'null']):
+            raise ValueError("must be one of enum values ('CURRENTLY_UNAVAILABLE_IN_COURT', 'NO_LONGER_AVAILABLE_IN_COURT', 'SEALED', 'null')")
         return value
 
     model_config = ConfigDict(

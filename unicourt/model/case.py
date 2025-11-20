@@ -62,7 +62,7 @@ class Case(BaseModel):
     last_fetch_date: Optional[datetime] = Field(default=None, description="The date and time when the case was last fetched from the Court. This date and time is in UTC. Formatted as YYYY-MM-DDTHH:MM:SS+ZZ:zz, Note: It is not necessary that every time the case is fetched from Court we find changes in the case information. It could be that we already have the latest information from the Court and no changes exist.", alias="lastFetchDate")
     last_fetch_date_with_updates: Optional[datetime] = Field(default=None, description="The date and time when the case was last fetched from the Court where we found changes in the case information. This date and time is in UTC. Formatted as YYYY-MM-DDTHH:MM:SS+ZZ:zz,", alias="lastFetchDateWithUpdates")
     participants_last_fetch_date: Optional[datetime] = Field(default=None, description="The date and time when parties/attorneys were last updated from the Court. Formatted as YYYY-MM-DDTHH:MM:SS+ZZ:zz, Note: This is currently applicable for Federal PACER cases since we have an option to exclude parties and fetch only latest docket entries when updating cases to save PACER fees.", alias="participantsLastFetchDate")
-    source_data_status: Optional[StrictStr] = Field(default=None, description="The status of source data of case. If the value of sourceDataStatus is SOURCE_DEPRECATED then it means that the Case has been migrated from old court site to a new court site and the data being shown in the API response is from a old court site. If the sourceDataStatus is NO_LONGER_AVAILABLE_IN_COURT then it means that a particular case is invalid in the court site.", alias="sourceDataStatus")
+    source_data_status: Optional[StrictStr] = Field(default=None, description="The status of source data of case. If the value of sourceDataStatus is SOURCE_DEPRECATED then it means that the Case has been migrated from old court site to a new court site and the data being shown in the API response is from a old court site. If the sourceDataStatus is CURRENTLY_UNAVAILABLE_IN_COURT then it means that a particular case is currently not available in the court site.", alias="sourceDataStatus")
     source_case_data: Optional[SourceCaseData] = Field(default=None, alias="sourceCaseData")
     has_documents_with_preview: Optional[StrictBool] = Field(default=None, description="This field will be set to TRUE if atleast one document has a preview.", alias="hasDocumentsWithPreview")
     export_api: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="When a case is beyond the threshold of entities we provide this link so that the user can request and get all the data of the case with one additional call. This data will be zipped and sent via a webhoook.", alias="exportAPI")
@@ -82,8 +82,8 @@ class Case(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['NO_LONGER_AVAILABLE_IN_COURT', 'null']):
-            raise ValueError("must be one of enum values ('NO_LONGER_AVAILABLE_IN_COURT', 'null')")
+        if value not in set(['CURRENTLY_UNAVAILABLE_IN_COURT', 'NO_LONGER_AVAILABLE_IN_COURT', 'null']):
+            raise ValueError("must be one of enum values ('CURRENTLY_UNAVAILABLE_IN_COURT', 'NO_LONGER_AVAILABLE_IN_COURT', 'null')")
         return value
 
     model_config = ConfigDict(
