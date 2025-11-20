@@ -31,7 +31,7 @@ REQUIRES = [
     "urllib3 >= 1.25.3, < 2.1.0",
     "python-dateutil",
     "pydantic >= 2",
-    "typing-extensions >= 4.7.1",
+    "typing-extensions >= 4.14.1",
 ]
 
 setup(
