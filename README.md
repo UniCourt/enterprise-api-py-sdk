@@ -112,9 +112,10 @@ To contribute to this project:
 
 1. Create a pull request targeting the [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branch.
 2. Repository maintainer will review and merge the PR into the [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branch.
+   - **Note:** Before merging, the maintainer ensures the [main](https://github.com/UniCourt/enterprise-api-py-sdk/tree/main) and [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branches are in sync.
 3. Repository maintainer will create a PR from [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) to the [main](https://github.com/UniCourt/enterprise-api-py-sdk/tree/main) branch.
    - Merging this PR triggers a GitHub Actions workflow that verifies the changes.
-4. After verification, repository maintainer will create a tag and release.
+4. After Github Actions is completed, repository maintainer will create a tag and release.
 
 ## GitHub Actions
 
