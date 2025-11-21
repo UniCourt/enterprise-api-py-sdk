@@ -5,6 +5,7 @@ on:
     types: [closed]
     branches:
       - main
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
