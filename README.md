@@ -108,8 +108,6 @@ SDK will throw Python error exceptions in the below mentioned scenario's.
 
 ## Merging and Release Process
 
-The Workflow for merging contributions and releasing:
-
 1. Create a pull request targeting the [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branch.
 2. Repository maintainer will review and merge the PR into the [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branch.
    - **Note:** Before merging, the maintainer ensures the [main](https://github.com/UniCourt/enterprise-api-py-sdk/tree/main) and [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branches are in sync.
