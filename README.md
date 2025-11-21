@@ -82,7 +82,7 @@ Authentication.invalidate_token()
 
 ## Python Error Exceptions
 SDK will throw Python error exceptions in the below mentioned scenario's.
-- When the request agruments or data passed to the SDK functions are incorrect.
+- When the request arguments or data passed to the SDK functions are incorrect.
 
     Example :
     ```
