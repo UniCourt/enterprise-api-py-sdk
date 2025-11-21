@@ -24,11 +24,10 @@ pip install unicourt
 git clone https://github.com/UniCourt/enterprise-api-py-sdk.git
 
 # Replace the below credentials with your credentials
-export CLIENT_ID=”G3cfixgetVzfaoszGOBp5LPGtih1nMJ9”
-export CLIENT_SECRET=”u6PTti57IjPlrwU5MzOwLBD2MCwx-IEbo8sTStTivh1I-EqQ8Jcm27Gf”
-export PACER_CLIENT_CODE=”xyz_client_code”
-export PACER_USER_ID=”pcrid”
-export CLIENT_ID=”client_id”
+export CLIENT_ID="client_id"
+export CLIENT_SECRET="client_secret"
+export PACER_CLIENT_CODE="xyz_client_code"
+export PACER_USER_ID="pcrid"
 
 # Move the to the test directory in the UniCourt SDK repository
 cd enterprise-api-py-sdk/test/
