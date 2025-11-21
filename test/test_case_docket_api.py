@@ -14,7 +14,7 @@ class TestCaseDocket:
 
     def test_get_case():
         return CaseDocket.get_case(
-            case_id='CASEakfbd1817d7431',
+            case_id='CASEgfe4e3a490fe24',
         )
 
     def test_get_case_attorneys():

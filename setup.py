@@ -25,13 +25,13 @@ def _generate_description():
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "unicourt"
-VERSION = "1.1.0"
+VERSION = "1.1.1"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
     "urllib3 >= 1.25.3, < 2.1.0",
     "python-dateutil",
     "pydantic >= 2",
-    "typing-extensions >= 4.7.1",
+    "typing-extensions >= 4.14.1",
 ]
 
 setup(

@@ -96,16 +96,16 @@ class TestCaseAnalytics:
 
     def test_get_case_count_analytics_by_opposing_norm_law_firm_for_a_norm_law_firm():
         return CaseAnalytics.get_case_count_analytics_by_opposing_norm_law_firm_for_a_norm_law_firm(
-            norm_law_firm_id='NORGrPmQyLdx9NGHcT',
+            norm_law_firm_id='NORGVHdWCDN7D6Ayn3',
             page_number=1,
-            q='caseTypeId:"CTYPATMYyaJekdgj2c" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00]'
+            q='caseTypeId:"CTYPNjbKTN7Yfo2wdb" AND caseFiledDate:[2017-01-01T00:00:00+00:00 TO 2025-11-30T00:00:00+00:00]'
         )
 
     def test_get_case_count_analytics_by_opposing_norm_party_for_a_norm_party():
         return CaseAnalytics.get_case_count_analytics_by_opposing_norm_party_for_a_norm_party(
-            norm_party_id='NORGrPmQyLdx9NGHcT',
+            norm_party_id='NORGaSAiNLuy6J4uy5',
             page_number=1,
-            q='caseTypeId:"CTYPATMYyaJekdgj2c" AND caseFiledDate:[2017-01-01T00:00:00+00:00TO2021-11-30T00:00:00+00:00]'
+            q='caseTypeId:"CTYPiVk7MPJoRXGqMP" AND caseFiledDate:[2017-01-01T00:00:00+00:00 TO 2025-11-30T00:00:00+00:00]'
         )
 
     def test_get_case_count_analytics_by_party_role():
