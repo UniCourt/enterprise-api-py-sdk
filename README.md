@@ -105,3 +105,21 @@ SDK will throw Python error exceptions in the below mentioned scenario's.
       Value error, must be one of enum values ('issueAtTheCourtSource', 'notIntegrated', 'brokenIntegration') [type=value_error, input_value='underMaintenance', input_type=str]
         For further information visit https://errors.pydantic.dev/2.8/v/value_error
     ```
+
+## Contributing
+
+To contribute to this project:
+
+1. Create a pull request targeting the [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branch.
+2. Repository maintainer will review and merge the PR into the [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branch.
+3. Repository maintainer will create a PR from [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) to the [main](https://github.com/UniCourt/enterprise-api-py-sdk/tree/main) branch.
+   - Merging this PR triggers a GitHub Actions workflow that verifies the changes.
+4. After verification, repository maintainer will create a tag and release.
+
+## GitHub Actions
+
+The GitHub Actions workflow builds and installs the SDK from source, then runs tests that call the APIs using the SDK.
+
+**Test Account:**
+- Account Name: Enterprise API Team SDK Github Test Account
+- Account ID: p1651099774
