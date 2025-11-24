@@ -115,6 +115,8 @@ SDK will throw Python error exceptions in the below mentioned scenario's.
    - Merging this PR triggers a GitHub Actions workflow that verifies the changes.
 4. After Github Actions is completed, repository maintainer will create a tag and release.
 
+**Note:** This process is necessary because pull requests from forks cannot access repository secrets, causing GitHub Actions workflows to fail.
+
 ## GitHub Actions
 
 The GitHub Actions workflow builds and installs the SDK from source, then runs tests that call the APIs using the SDK.
