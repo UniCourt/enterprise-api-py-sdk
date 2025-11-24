@@ -10,45 +10,51 @@ See the UniCourt data model here (requires UniCourt account): [UniCourt Data Mod
 
 ### Requirements
 
--   Python >=3.7
+- Python >=3.7
 
 ## Installation
-You can use the source code if you want to modify the package and use it as per your need. If you just want to use the package, just run:
-```sh
+To customize the package, you can modify the source code as needed.
+If you simply want to use the package, install it with:
+
+```shell
 pip install --upgrade unicourt
 ```
 
-Install from source :
+Install from source:
 
-```sh
+```shell
 python setup.py install
 ```
 
 ## Pre-request and Configuration
-You need a UniCourt account with API access :  [Subscription Plans](https://unicourt.com/pricing)
+Requires UniCourt account with API access :  [Subscription Plans](https://unicourt.com/pricing)
 
-You will find clientId and secret here: [Client Secrets](https://app.unicourt.com/developers/enterpriseAPI)
+ClientId and Client secrets can be found here: [Client Secrets](https://app.unicourt.com/developers/enterpriseAPI)
 
 ## Getting Started
-The Python script you see here takes two command line arguments i.e clientId and secret, to execute the script copy and paste the code to a file (sample.py) and run the script in a terminal as shown in the example below.
+This Python script accepts two command-line arguments: clientId and ClientSecret.
+To run it, copy the code into a file (e.g., sample.py) and execute it in your terminal as shown below:
 
 Example : 
-- python sample.py [your client id] [your secret]
-- python sample.py G3cfixgetVzfaoszGOBp5LPGtih1nMJ9 u6PTti57IjPlrwU5MzOwLBD2MCwx-IEbo8sTStTivh1I-EqQ8Jcm27Gfo2GhpHCw
+- `python sample.py [your client id] [your client secret]`
+- `python sample.py G3cfixgetVzfaoszGOBp5LPGtih1nMJ9 u6PTti57IjPlrwU5MzOwLBD2MCwx-IEbo8sTStTivh1I-EqQ8Jcm27Gfo2GhpHCw`
 
 ```python
+import sys
+
 import unicourt
-from unicourt import *
+from unicourt import AttorneyAnalytics, Authentication, CourtStandards, JudgeAnalytics
 
-# Get CLIENT_ID and CLIENT_SECRET from your account
-unicourt.CLIENT_ID = "G3cfixgetVzfaoszGOBp5LPGtih1nMJ9"
-unicourt.CLIENT_SECRET = "u6PTti57IjPlrwU5MzOwLBD2MCwx-IEbo8sTStTivh1I-EqQ8Jcm27Gfo2GhpHCw"
+# Get CLIENT_ID and CLIENT_SECRET from command line arguments
+if len(sys.argv) >= 3:
+    unicourt.CLIENT_ID = sys.argv[1]
+    unicourt.CLIENT_SECRET = sys.argv[2]
+else:
+    raise ValueError("CLIENT_ID and CLIENT_SECRET must be provided via command line arguments.")
 
-# Authenticate to generate a access token, below line will return
-# a tuple consisting of authentication object and http status code.
-# You can generate up to 10 authentication tokens so be sure to use
-# invalidate_token() method to invalidate the token once you are done
-# or store the token securely and use it for subsequent requests.
+# Generate new access token using CLIENT_ID and CLIENT_SECRET,  the generate_new_token() 
+# method will return a tuple consisting of authentication object and http status code.
+# Note: A maximum of 10 authentication tokens can be active at a time.
 auth_obj, http_status_code = Authentication.generate_new_token()
 
 # Get Area Of Law details.
@@ -59,7 +65,6 @@ court_standards_obj, http_status_code = CourtStandards.get_areas_of_law(
     order="asc")
 for court_standard_obj in court_standards_obj.area_of_law_array:
     print("Area Of Law Id : ", court_standard_obj.area_of_law_id)
-
 
 # Get Judge details.
 judge_obj, http_status_code = JudgeAnalytics.search_normalized_judges(
@@ -80,28 +85,23 @@ for attorney in attorney_obj.norm_attorney_search_result_array:
 Authentication.invalidate_token()
 ```
 
-## Python Error Exceptions
-SDK will throw Python error exceptions in the below mentioned scenario's.
-- When the request agruments or data passed to the SDK functions are incorrect.
+## Important Note On Merging & Release
+The below process for merge and release is necessary because all pull requests from forks cannot access repository secrets, causing GitHub Actions workflows to fail. The Github Actions will be successfully completed only if pull requests are merged from the branches within the https://github.com/UniCourt/enterprise-api-py-sdk repository.
 
-    Example :
-    ```
-    Callback.get_callbacks() got an unexpected keyword argument 'vardate'
-    ```
-- When the sever sends any error response.
+### Merging and Release Process
 
-    Example :
-    ```
-    Reason: Internal Server Error
-    HTTP response headers: HTTPHeaderDict({'Date': 'Tue, 13 Aug 2024 09:31:41 GMT', 'Content-Type': 'application/json', 'Content-Length': '145', 'Connection': 'keep-alive', 'Apigw-Requestid': 'ccMvJhfYoAMEWzA='})
-    HTTP response body: {"object": "Exception", "code": "UN500", "message": "INTERNAL_SERVER_ERROR", "details": "Has encountered a situation which needs to be handled."}
-    ```
-- When the response has any new values which are not supported by the SDK. This can occur only when using the older version of SDK.
+1. Create a pull request targeting the [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branch.
+2. Repository maintainer will review and merge the PR into the [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branch.
+   - **Note:** Before merging, the maintainer ensures the [main](https://github.com/UniCourt/enterprise-api-py-sdk/tree/main) and [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) branches are in sync.
+3. Repository maintainer will create a PR from [dev-1.1.x](https://github.com/UniCourt/enterprise-api-py-sdk/tree/dev-1.1.x) to the [main](https://github.com/UniCourt/enterprise-api-py-sdk/tree/main) branch.
+   - Merging this PR triggers a GitHub Actions workflow that verifies the changes.
+4. After Github Actions is completed, repository maintainer will create a tag and release.
 
-    Example :
-    ```
-    1 validation error for ServiceStatusDownDetails
-    reason
-      Value error, must be one of enum values ('issueAtTheCourtSource', 'notIntegrated', 'brokenIntegration') [type=value_error, input_value='underMaintenance', input_type=str]
-        For further information visit https://errors.pydantic.dev/2.8/v/value_error
-    ```
+
+### GitHub Actions
+
+The GitHub Actions workflow builds and installs the SDK from source, then runs tests that call the APIs using the SDK.
+
+**Github Actions Test Account:**
+- Account Name: Enterprise API Team SDK Github Test Account
+- Account ID: p1651099774
